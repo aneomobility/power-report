@@ -1,6 +1,5 @@
 import calendar
 from datetime import datetime, timedelta
-import math
 import os
 import pandas as pd
 from azure.data.tables import TableClient
@@ -8,10 +7,8 @@ from azure.core.credentials import AzureNamedKeyCredential
 import csv
 import concurrent.futures
 import psycopg
-from functools import reduce
 from dataclasses import dataclass
 from typing import Optional
-import plotly.express as px
 import plotly.graph_objects as go
 from dotenv import load_dotenv
 
@@ -191,7 +188,7 @@ def merge_data(data, results):
 
 if __name__ == "__main__":
     obsIds = ["122"]
-    days_back_in_time = 7
+    days_back_in_time = 30
     data = get_charging_unit_data()
     results = []
     with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -225,6 +222,12 @@ if __name__ == "__main__":
         ).sort_values("avg_three_highest_peaks", ascending=False)
 
         highest_peaks_avg.to_csv("highest_peaks_avg.csv", index=False)
+
+        # select 10 highest peak sites and filter report to only include those
+        highest_peaks = highest_peaks_avg.nlargest(10, "avg_three_highest_peaks")[
+            "site_key"
+        ]
+        report = report[report["site_key"].isin(highest_peaks)]
 
         report["week_of_day"] = report["timestamp"].dt.dayofweek
         report["hour"] = report["timestamp"].dt.hour.astype(int)
