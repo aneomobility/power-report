@@ -209,8 +209,10 @@ if __name__ == "__main__":
         df["value_kWh"] = pd.to_numeric(df["value_kWh"])
         df["circuit_power_kw"] = pd.to_numeric(df["circuit_power_kw"])
 
+        site_names = df[["site_key", "name"]].drop_duplicates()
+
         report = (
-            df.groupby(["site_key", "circuit_id", "timestamp"])
+            df.groupby(["site_key", "name", "circuit_id", "timestamp"])
             .agg(sum_value_kWh=("value_kWh", "sum"), chargers=("value_kWh", "count"))
             .reset_index()
         )
@@ -232,7 +234,7 @@ if __name__ == "__main__":
         report["week_of_day"] = report["timestamp"].dt.dayofweek
         report["hour"] = report["timestamp"].dt.hour.astype(int)
         report = (
-            report.groupby(["site_key", "circuit_id", "week_of_day", "hour"])
+            report.groupby(["site_key", "name", "circuit_id", "week_of_day", "hour"])
             .agg(sum_value_kWh=("sum_value_kWh", "mean"), chargers=("chargers", "mean"))
             .reset_index()
         )
@@ -246,6 +248,7 @@ if __name__ == "__main__":
         report["used_power_ratio"] = (
             report["sum_value_kWh"] / report["circuit_power_kw"] * 100
         ).round(2)
+
         expanded_data = []
 
         for site, site_data in report.groupby("site_key"):
@@ -290,6 +293,7 @@ if __name__ == "__main__":
                     showlegend=True,
                 )
             )
+            site_name = site_names[site_names["site_key"] == site]["name"].values[0]
 
             for circuit in site_data["circuit_id"].unique():
                 circuit_data = site_data[site_data["circuit_id"] == circuit]
@@ -308,7 +312,7 @@ if __name__ == "__main__":
                         y=circuit_data["sum_value_kWh"],
                         name=f"Circuit {circuit}",
                         legendgroup=f"site_{site}",
-                        legendgrouptitle_text=f"Site {site}: {highest_peaks_avg[highest_peaks_avg['site_key'] == site]['avg_three_highest_peaks'].values[0]:.2f} kWh",
+                        legendgrouptitle_text=f"Site {site_name}: {highest_peaks_avg[highest_peaks_avg['site_key'] == site]['avg_three_highest_peaks'].values[0]:.2f} kWh",
                         showlegend=True,
                         text=circuit_data["chargers"],
                         textposition="outside",
