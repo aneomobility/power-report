@@ -16,6 +16,8 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+
+
 # Constants
 DB_URL = os.getenv("DB_URL")
 AZ_ACCOUNT = os.getenv("AZ_ACCOUNT")
