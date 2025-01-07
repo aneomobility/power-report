@@ -76,216 +76,267 @@ class ChargingUnitComplete:
 
 
 def get_charging_unit_data() -> List[ChargingUnit]:
-    """Fetch charging unit data from the database."""
+    """
+    Fetch charging unit data from the database.
+    Only fetches units from the specified provider and site key.
+    """
     query = f"""
         SELECT
             "PulseStructureSite".id AS "siteId",
             "PulseStructureSite"."siteKey",
             "PulseStructureSite"."name",
-            "PulseStructureSite"."fuseRating" AS "siteFuseRating (A)",
+            "PulseStructureSite"."fuseRating" AS "siteFuseRating(A)",
             "PulseStructureSite"."netType",
-            REGEXP_REPLACE("PulseStructureSite"."netType", '[^0-9]', '', 'g')::INTEGER AS "net (V)",
-            REGEXP_REPLACE("PulseStructureSite"."netType", '[^0-9]', '', 'g')::INTEGER * "PulseStructureSite"."fuseRating" * SQRT(3) / 1000 AS "sitePower (kW)",
+            REGEXP_REPLACE("PulseStructureSite"."netType", '[^0-9]', '', 'g')::INTEGER AS "net(V)",
+            REGEXP_REPLACE("PulseStructureSite"."netType", '[^0-9]', '', 'g')::INTEGER * "PulseStructureSite"."fuseRating" * SQRT(3) / 1000 AS "sitePower(kW)",
             "PulseStructureSite"."hasLoadbalancer",
             "PulseStructureCircuit".id AS "circuitId",
             "PulseStructureCircuit"."name" AS "circuitName",
-            "PulseStructureCircuit"."fuseRating" AS "circuitFuseRating (A)",
+            "PulseStructureCircuit"."fuseRating" AS "circuitFuseRating(A)",
             "PulseStructureChargingUnit".provider,
             "PulseStructureChargingUnit"."chargerId",
-            REGEXP_REPLACE("PulseStructureSite"."netType", '[^0-9]', '', 'g')::INTEGER * "PulseStructureCircuit"."fuseRating" * SQRT(3) / 1000 AS "circuitPower (kW)"
+            REGEXP_REPLACE("PulseStructureSite"."netType", '[^0-9]', '', 'g')::INTEGER * "PulseStructureCircuit"."fuseRating" * SQRT(3) / 1000 AS "circuitPower(kW)"
         FROM
             "PulseStructureSite"
             LEFT JOIN "PulseStructureCircuit" ON "PulseStructureSite".id = "PulseStructureCircuit"."siteId"
             LEFT JOIN "PulseStructureChargingUnit" ON "PulseStructureCircuit".id = "PulseStructureChargingUnit"."circuitId"
         WHERE
             "PulseStructureChargingUnit".provider = '{PROVIDER}'
-            AND "PulseStructureSite"."siteKey" = '5RXH-2722'
+            AND "PulseStructureSite"."siteKey" = 'UQYJ-E622'
+
+
     """
     data = []
     with psycopg.connect(DB_URL) as conn:
         with conn.cursor() as cur:
             cur.execute(query)
             for record in cur:
-                charging_unit = ChargingUnit(
-                    site_id=record[0],
-                    site_key=record[1],
-                    name=record[2],
-                    site_fuse_rating_a=record[3],
-                    net_type=record[4],
-                    net_v=record[5],
-                    site_power_kw=record[6],
-                    has_loadbalancer=record[7],
-                    circuit_id=record[8],
-                    circuit_name=record[9],
-                    circuit_fuse_rating_a=record[10],
-                    provider=record[11],
-                    charger_id=record[12],
-                    circuit_power_kw=record[13],
+                data.append(
+                    ChargingUnit(
+                        site_id=record[0],
+                        site_key=record[1],
+                        name=record[2],
+                        site_fuse_rating_a=record[3],
+                        net_type=record[4],
+                        net_v=record[5],
+                        site_power_kw=record[6],
+                        has_loadbalancer=record[7],
+                        circuit_id=record[8],
+                        circuit_name=record[9],
+                        circuit_fuse_rating_a=record[10],
+                        provider=record[11],
+                        charger_id=record[12],
+                        circuit_power_kw=record[13],
+                    )
                 )
-                data.append(charging_unit)
-
     return data
 
 
 def fetch_charger_data(
-    d: ChargingUnit, obsId: str, days_back_in_time: int
+    charging_unit: ChargingUnit, obs_id: str, days_back: int
 ) -> List[ObsData]:
-    """Fetch charger data from Azure Table Storage."""
-    credential = AzureNamedKeyCredential(AZ_ACCOUNT, AZ_KEY)
-    now = datetime.now()
-    days_back_in_time = now - timedelta(days=days_back_in_time)
-    now_iso = now.strftime("%Y-%m-%dT%H:%M:%S.000Z")
-    one_week_ago_iso = days_back_in_time.strftime("%Y-%m-%dT%H:%M:%S.000Z")
-    if d.provider != PROVIDER:
+    """
+    Fetch charger observation data from Azure Table Storage for a single charger and observation ID
+    within a specified timeframe.
+    """
+    if charging_unit.provider != PROVIDER:
         return []
-    my_filter = f"PartitionKey eq 'EASEE_{obsId}' and RowKey gt '{d.charger_id}_{one_week_ago_iso}' and RowKey lt '{d.charger_id}_{now_iso}'"
+
+    credential = AzureNamedKeyCredential(AZ_ACCOUNT, AZ_KEY)
     table_client = TableClient(
         credential=credential, endpoint=TABLE_ENDPOINT, table_name=TABLE_NAME
     )
-    entities = table_client.query_entities(my_filter)
+
+    now = datetime.now()
+    start_time = now - timedelta(days=days_back)
+    now_iso = now.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+    start_iso = start_time.strftime("%Y-%m-%dT%H:%M:%S.000Z")
+
+    filter_str = (
+        f"PartitionKey eq 'EASEE_{obs_id}' "
+        f"and RowKey gt '{charging_unit.charger_id}_{start_iso}' "
+        f"and RowKey lt '{charging_unit.charger_id}_{now_iso}'"
+    )
+
+    entities = table_client.query_entities(filter_str)
     return [
         ObsData(
-            entity["chargerId"],
-            entity["pulseTimestamp"],
-            entity["value"],
-            entity["observationId"],
+            charger_id=e["chargerId"],
+            timestamp=e["pulseTimestamp"],
+            value=e["value"],
+            observation_id=e["observationId"],
         )
-        for entity in entities
+        for e in entities
     ]
 
 
-def write_to_csv(file_path: str, data_instances: List[dataclass]):
-    """Write data instances to a CSV file."""
-    with open(file_path, mode="w", newline="") as file:
-        writer = csv.writer(file)
-        writer.writerow(data_instances[0].__annotations__.keys())
-        for instance in data_instances:
-            writer.writerow(instance.__dict__.values())
-
-
 def merge_data(
-    data: List[ChargingUnit], results: List[ObsData]
+    charging_units: List[ChargingUnit], obs_data_list: List[ObsData]
 ) -> List[ChargingUnitComplete]:
-    """Merge charging unit data with observation data."""
+    """
+    Merge charging unit static info with observation data.
+    Only include entries where value > 0.
+    """
     complete_data = []
-    for result in results:
-        if result.value > 0:
-            charging_unit = next(
-                (x for x in data if x.charger_id == result.charger_id), None
-            )
-            if charging_unit:
+    unit_map = {cu.charger_id: cu for cu in charging_units}
+    for obs in obs_data_list:
+        if float(obs.value) > 0:
+            cu = unit_map.get(obs.charger_id)
+            if cu:
                 complete_data.append(
                     ChargingUnitComplete(
-                        **charging_unit.__dict__,
-                        timestamp=result.timestamp,
-                        value_kWh=result.value,
-                        observation_id=result.observation_id,
+                        **cu.__dict__,
+                        timestamp=obs.timestamp,
+                        value_kWh=obs.value,
+                        observation_id=obs.observation_id,
                     )
                 )
     return complete_data
 
 
-def process_data():
-    """Main processing function."""
-    data = get_charging_unit_data()
-    results = []
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        futures = [
-            executor.submit(fetch_charger_data, d, obsId, DAYS_BACK_IN_TIME)
-            for d in data
-            for obsId in OBS_IDS
-        ]
-        for future in concurrent.futures.as_completed(futures):
-            results.extend(future.result())
+def aggregate_data(df: pd.DataFrame) -> (pd.DataFrame, pd.DataFrame):
+    """
+    Aggregate the raw merged data at multiple levels:
+    - Site-Circuit-Timestamp: sum of kWh and count of chargers.
+    - Site-Timestamp: sum of all circuits at the site for each timestamp.
 
-    if not results:
-        print("No data found")
-        return
-
-    complete_data = merge_data(data, results)
-    df = pd.DataFrame([d.__dict__ for d in complete_data])
+    Returns:
+        report_circuit_level: Aggregated at site_key, name, circuit_id, timestamp.
+        report_site_level: Aggregated at site_key, timestamp to get total usage per hour at the site.
+    """
+    # Ensure correct types
     df["timestamp"] = pd.to_datetime(df["timestamp"])
     df["value_kWh"] = pd.to_numeric(df["value_kWh"])
     df["circuit_power_kw"] = pd.to_numeric(df["circuit_power_kw"])
 
-    site_names = df[["site_key", "name"]].drop_duplicates()
-
-    report = (
+    # Circuit-level aggregation by hour
+    report_circuit_level = (
         df.groupby(["site_key", "name", "circuit_id", "timestamp"])
         .agg(sum_value_kWh=("value_kWh", "sum"), chargers=("value_kWh", "count"))
         .reset_index()
     )
 
-    highest_peaks_avg = (
-        report.groupby("site_key")
-        .apply(lambda x: x.nlargest(3, "sum_value_kWh")["sum_value_kWh"].mean())
+    # Site-level aggregation by hour (sum over all circuits)
+    report_site_level = report_circuit_level.groupby(
+        ["site_key", "timestamp"], as_index=False
+    ).agg(site_sum_value_kWh=("sum_value_kWh", "sum"))
+
+    return report_circuit_level, report_site_level
+
+
+def calculate_highest_peaks_avg(
+    df: pd.DataFrame, group_cols: List[str], value_col: str
+) -> pd.DataFrame:
+    """
+    Calculate the average of the top 3 highest peaks for each group in a DataFrame.
+
+    Arguments:
+        df: Input DataFrame.
+        group_cols: Columns to group by.
+        value_col: The column with values to consider for top peaks.
+
+    Returns:
+        A DataFrame with group_cols plus a new column 'avg_three_highest_peaks'.
+    """
+
+    def top_three_avg(group):
+        top_three = group.nlargest(3, value_col)[value_col]
+        return (
+            top_three.mean()
+            if len(top_three) == 3
+            else top_three.mean() if len(top_three) > 0 else 0
+        )
+
+    result = (
+        df.groupby(group_cols)
+        .apply(top_three_avg)
         .reset_index(name="avg_three_highest_peaks")
-    ).sort_values("avg_three_highest_peaks", ascending=False)
+        .sort_values("avg_three_highest_peaks", ascending=False)
+    )
+    return result
 
-    highest_peaks_avg.to_csv("highest_peaks_avg.csv", index=False)
 
-    highest_peaks = highest_peaks_avg.nlargest(10, "avg_three_highest_peaks")[
-        "site_key"
-    ]
-    report = report[report["site_key"].isin(highest_peaks)]
+def prepare_hourly_data(
+    report_df: pd.DataFrame, df_original: pd.DataFrame
+) -> pd.DataFrame:
+    """
+    For each site and circuit, create a full grid of (day, hour) combinations for the given period
+    and merge with the existing report data to fill missing hours with zeros.
+    """
+    # Extract day and hour from timestamp
+    report_df["day"] = report_df["timestamp"].dt.day
+    report_df["hour"] = report_df["timestamp"].dt.hour.astype(int)
 
-    report["day"] = report["timestamp"].dt.day
-    report["hour"] = report["timestamp"].dt.hour.astype(int)
-    report = (
-        report.groupby(["site_key", "name", "circuit_id", "day", "hour"])
-        .agg(sum_value_kWh=("sum_value_kWh", "mean"), chargers=("chargers", "mean"))
-        .reset_index()
+    # Group by day/hour and take the mean (or sum) as needed
+    # For circuit level we keep sum_value_kWh and chargers aggregated
+    hourly_data = report_df.groupby(
+        ["site_key", "name", "circuit_id", "day", "hour"], as_index=False
+    ).agg(sum_value_kWh=("sum_value_kWh", "mean"), chargers=("chargers", "mean"))
+
+    # Add circuit power info back
+    circuit_power_info = df_original[
+        ["site_key", "circuit_id", "circuit_power_kw"]
+    ].drop_duplicates()
+    hourly_data = hourly_data.merge(
+        circuit_power_info, on=["site_key", "circuit_id"], how="left"
     )
 
-    report = report.merge(
-        df[["site_key", "circuit_id", "circuit_power_kw"]].drop_duplicates(),
-        on=["site_key", "circuit_id"],
-        how="left",
+    # Calculate ratio
+    hourly_data["used_power_ratio"] = (
+        (hourly_data["sum_value_kWh"] / hourly_data["circuit_power_kw"] * 100)
+        .fillna(0)
+        .round(2)
     )
 
-    report["used_power_ratio"] = (
-        report["sum_value_kWh"] / report["circuit_power_kw"] * 100
-    ).round(2)
-
-    expanded_data = expand_report_data(report)
-
-    plot_data(expanded_data, site_names, highest_peaks_avg)
-    print(data[0])
-
-
-def expand_report_data(report: pd.DataFrame) -> pd.DataFrame:
-    """Expand report data to include all day-hour combinations."""
+    # Expand data to include all possible day-hour combinations for each site-circuit
     expanded_data = []
-    for site, site_data in report.groupby("site_key"):
-        for circuit in site_data["circuit_id"].unique():
-            circuit_data = site_data[site_data["circuit_id"] == circuit]
-            all_combinations = pd.MultiIndex.from_product(
-                [[site], [circuit], range(31), range(24)],
-                names=["site_key", "circuit_id", "day", "hour"],
-            ).to_frame(index=False)
+    for (site, circuit), sub_df in hourly_data.groupby(["site_key", "circuit_id"]):
+        # Assume 31 days and 24 hours as in original code
+        all_combinations = pd.MultiIndex.from_product(
+            [[site], [circuit], range(1, 32), range(24)],
+            names=["site_key", "circuit_id", "day", "hour"],
+        ).to_frame(index=False)
 
-            merged = pd.merge(
-                all_combinations,
-                circuit_data,
-                on=["site_key", "circuit_id", "day", "hour"],
-                how="left",
-            ).fillna({"sum_value_kWh": 0, "circuit_power_kw": 0, "used_power_ratio": 0})
-            expanded_data.append(merged)
+        merged = pd.merge(
+            all_combinations,
+            sub_df,
+            on=["site_key", "circuit_id", "day", "hour"],
+            how="left",
+        ).fillna(
+            {
+                "sum_value_kWh": 0,
+                "chargers": 0,
+                "circuit_power_kw": 0,
+                "used_power_ratio": 0,
+            }
+        )
 
-    return pd.concat(expanded_data, ignore_index=True).sort_values(
+        expanded_data.append(merged)
+
+    expanded_data = pd.concat(expanded_data, ignore_index=True).sort_values(
         by=["site_key", "circuit_id", "day", "hour"]
     )
+
+    return expanded_data
 
 
 def plot_data(
     report_expanded: pd.DataFrame,
     site_names: pd.DataFrame,
-    highest_peaks_avg: pd.DataFrame,
+    circuit_highest_peaks: pd.DataFrame,
 ):
-    """Plot the expanded report data."""
+    """
+    Plot the expanded hourly data.
+    Each circuit trace will show the circuit-level avg_three_highest_peaks in the legend.
+    """
     fig = go.Figure()
+
+    # Iterate over sites
     for site in report_expanded["site_key"].unique():
         site_data = report_expanded[report_expanded["site_key"] == site]
+        site_name = site_names[site_names["site_key"] == site]["name"].values[0]
+
+        # Create a dummy empty trace for the site group for improved legend grouping
         fig.add_trace(
             go.Bar(
                 x=[],
@@ -295,10 +346,22 @@ def plot_data(
                 showlegend=True,
             )
         )
-        site_name = site_names[site_names["site_key"] == site]["name"].values[0]
 
+        # Iterate over circuits
         for circuit in site_data["circuit_id"].unique():
             circuit_data = site_data[site_data["circuit_id"] == circuit]
+
+            # Get the avg_three_highest_peaks for this specific circuit
+            avg_peak_for_circuit = circuit_highest_peaks[
+                (circuit_highest_peaks["site_key"] == site)
+                & (circuit_highest_peaks["circuit_id"] == circuit)
+            ]["avg_three_highest_peaks"].values
+
+            if len(avg_peak_for_circuit) > 0:
+                avg_peak_str = f"{avg_peak_for_circuit[0]:.2f} kWh"
+            else:
+                avg_peak_str = "N/A"
+
             fig.add_trace(
                 go.Bar(
                     x=[
@@ -308,11 +371,12 @@ def plot_data(
                     y=circuit_data["sum_value_kWh"],
                     name=f"Circuit {circuit}",
                     legendgroup=f"site_{site}",
-                    legendgrouptitle_text=f"Site {site_name}: {highest_peaks_avg[highest_peaks_avg['site_key'] == site]['avg_three_highest_peaks'].values[0]:.2f} kWh",
+                    legendgrouptitle_text=f"Site {site_name}",
                     showlegend=True,
                     text=circuit_data["chargers"],
                     textposition="outside",
-                    textfont=dict(size=52),
+                    textfont=dict(size=14),
+                    hovertext=f"Avg top 3 peaks: {avg_peak_str}",
                 )
             )
 
@@ -326,13 +390,87 @@ def plot_data(
     fig.write_html("index.html")
 
 
+def process_data():
+    # Fetch static charging unit info
+    charging_units = get_charging_unit_data()
+
+    # Fetch observation data (parallel)
+    obs_results = []
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        futures = [
+            executor.submit(fetch_charger_data, cu, obs_id, DAYS_BACK_IN_TIME)
+            for cu in charging_units
+            for obs_id in OBS_IDS
+        ]
+        for future in concurrent.futures.as_completed(futures):
+            obs_results.extend(future.result())
+
+    if not obs_results:
+        print("No data found")
+        return
+
+    # Merge data
+    complete_data = merge_data(charging_units, obs_results)
+    if not complete_data:
+        print("No valid observation data found.")
+        return
+
+    df = pd.DataFrame([d.__dict__ for d in complete_data])
+
+    old_df = df.copy()
+
+    # Aggregate data at circuit and site levels
+    report_circuit_level, report_site_level = aggregate_data(df)
+
+    # Calculate top 3 peaks average at circuit level
+    # We use site_key and circuit_id as grouping columns
+    circuit_highest_peaks = calculate_highest_peaks_avg(
+        report_circuit_level,
+        group_cols=["site_key", "circuit_id"],
+        value_col="sum_value_kWh",
+    )
+
+    # Calculate top 3 peaks average at site level (considering total usage)
+    site_highest_peaks = calculate_highest_peaks_avg(
+        report_site_level, group_cols=["site_key"], value_col="site_sum_value_kWh"
+    )
+
+    # Prepare hourly data (expanding to all day-hour combinations)
+    # We'll work with circuit-level report here
+    expanded_data = prepare_hourly_data(report_circuit_level, df)
+
+    # Extract unique site names for the plotting function
+    site_names = df[["site_key", "name"]].drop_duplicates()
+
+    # Plot the data
+    # Now each circuit trace hovertext will contain its avg_three_highest_peaks value
+    plot_data(expanded_data, site_names, circuit_highest_peaks)
+
+    # Write highest peaks averages to CSV for reference
+    site_highest_peaks.to_csv("data/site_highest_peaks_avg.csv", index=False)
+    circuit_highest_peaks.to_csv("data/circuit_highest_peaks_avg.csv", index=False)
+
+    old_df["timestamp"] = pd.to_datetime(old_df["timestamp"])
+    old_df.set_index("timestamp", inplace=True)
+
+    # Resample from noon to noon:
+    # '24H' sets the length of each interval to 24 hours,
+    # 'offset="12H"' means the period starts at 12:00 (noon) each day.
+    daily_sums_circuits = (
+        old_df.groupby("circuit_id")
+        .resample("24h", offset="12h")["value_kWh"]
+        .sum()
+        .reset_index()
+    )
+    daily_sums_circuits["day_of_week"] = daily_sums_circuits["timestamp"].dt.day_name()
+    daily_sums_circuits = daily_sums_circuits[
+        ["circuit_id", "timestamp", "day_of_week", "value_kWh"]
+    ]
+    daily_sums_circuits.to_csv("data/daily_sums_circuits.csv")
+
+    daily_sums = old_df.resample("24h", offset="12h")["value_kWh"].sum()
+    daily_sums.to_csv("data/daily_sums.csv")
+
+
 if __name__ == "__main__":
     process_data()
-
-    A = 63
-    V = 400
-    maxkW = 63 * 400 * math.sqrt(3) / 1000
-
-    desired_kW = 20
-    desired_A = desired_kW * 1000 / (V * math.sqrt(3))
-    print(desired_kW, desired_A)
