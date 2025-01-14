@@ -470,12 +470,15 @@ def process_data():
         ["circuit_id", "timestamp", "day_of_week", "value_kWh"]
     ]
 
-    report_circuit_level_avg = report_circuit_level.groupby(
+    circuit_avg = report_circuit_level.groupby(
         ["site_key", "name", "circuit_id"], as_index=False
     ).agg(avg_value_kWh=("sum_value_kWh", "mean"))
 
-    report_circuit_level_avg['avg_value_kWh'] = np.ceil(report_circuit_level_avg['avg_value_kWh']) + 1
-    report_circuit_level_avg.to_csv("data/report_circuit_level_avg.csv")
+    circuit_avg['avg_value_kWh'] = np.ceil(circuit_avg['avg_value_kWh']) + 1
+    circuit_avg["site_id"] = circuit_avg["site_key"].apply(lambda x: [cu.site_id for cu in charging_units if cu.site_key == x][0])
+    circuit_avg['voltage'] = circuit_avg['site_key'].apply(lambda x: [cu.net_v for cu in charging_units if cu.site_key == x][0])
+    circuit_avg['amps'] = np.round(circuit_avg['avg_value_kWh'] * 1000 / (circuit_avg['voltage'] * math.sqrt(3)))
+    circuit_avg.to_csv("data/circuit_avg.csv")
     daily_sums_circuits.to_csv("data/daily_sums_circuits.csv")
 
     daily_sums = old_df.resample("24h", offset="12h")["value_kWh"].sum()
