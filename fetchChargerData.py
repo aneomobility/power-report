@@ -2,6 +2,7 @@ import calendar
 from datetime import datetime, timedelta
 import math
 import os
+import numpy as np
 import pandas as pd
 from azure.data.tables import TableClient
 from azure.core.credentials import AzureNamedKeyCredential
@@ -104,7 +105,7 @@ def get_charging_unit_data() -> List[ChargingUnit]:
             LEFT JOIN "PulseStructureChargingUnit" ON "PulseStructureCircuit".id = "PulseStructureChargingUnit"."circuitId"
         WHERE
             "PulseStructureChargingUnit".provider = '{PROVIDER}'
-            AND "PulseStructureSite"."siteKey" = 'UQYJ-E622'
+            AND "PulseStructureSite"."siteKey" in ('RYW8-C322', '8N4M-N722', 'ZQK6-W522', '6M6M-7222', '28T4-7722', 'TRED-E222', 'EMRB-G222')
 
 
     """
@@ -468,6 +469,13 @@ def process_data():
     daily_sums_circuits = daily_sums_circuits[
         ["circuit_id", "timestamp", "day_of_week", "value_kWh"]
     ]
+
+    report_circuit_level_avg = report_circuit_level.groupby(
+        ["site_key", "name", "circuit_id"], as_index=False
+    ).agg(avg_value_kWh=("sum_value_kWh", "mean"))
+
+    report_circuit_level_avg['avg_value_kWh'] = np.ceil(report_circuit_level_avg['avg_value_kWh']) + 1
+    report_circuit_level_avg.to_csv("data/report_circuit_level_avg.csv")
     daily_sums_circuits.to_csv("data/daily_sums_circuits.csv")
 
     daily_sums = old_df.resample("24h", offset="12h")["value_kWh"].sum()
