@@ -18,7 +18,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-
 # Constants
 DB_URL = os.getenv("DB_URL")
 AZ_ACCOUNT = os.getenv("AZ_ACCOUNT")
@@ -26,7 +25,6 @@ AZ_KEY = os.getenv("AZ_KEY")
 TABLE_ENDPOINT = "https://pulsehubstoraged998526f.table.core.windows.net"
 TABLE_NAME = "formattedobservations"
 PROVIDER = "EASEE"
-SITE_NAME_FILTER = "Prestestien Brl%"
 OBS_IDS = ["122"]
 DAYS_BACK_IN_TIME = 30
 
@@ -105,7 +103,7 @@ def get_charging_unit_data() -> List[ChargingUnit]:
             LEFT JOIN "PulseStructureChargingUnit" ON "PulseStructureCircuit".id = "PulseStructureChargingUnit"."circuitId"
         WHERE
             "PulseStructureChargingUnit".provider = '{PROVIDER}'
-            AND "PulseStructureSite"."siteKey" in ('RYW8-C322', '8N4M-N722', 'ZQK6-W522', '6M6M-7222', '28T4-7722', 'TRED-E222', 'EMRB-G222')
+            AND "PulseStructureSite"."siteKey" in ('RYW8-C322', 'ZQK6-W522', '6M6M-7222', '28T4-7722', 'TRED-E222', 'EMRB-G222')
 
 
     """
@@ -136,18 +134,22 @@ def get_charging_unit_data() -> List[ChargingUnit]:
 
 
 def fetch_charger_data(
-    charging_unit: ChargingUnit, obs_id: str, days_back: int
+    charging_unit: ChargingUnit,
+    obs_id: str,
+    days_back: int,
+    provider: str,
+    table_name: str,
 ) -> List[ObsData]:
     """
     Fetch charger observation data from Azure Table Storage for a single charger and observation ID
     within a specified timeframe.
     """
-    if charging_unit.provider != PROVIDER:
+    if charging_unit.provider != provider and provider != "EMABLER":
         return []
 
     credential = AzureNamedKeyCredential(AZ_ACCOUNT, AZ_KEY)
     table_client = TableClient(
-        credential=credential, endpoint=TABLE_ENDPOINT, table_name=TABLE_NAME
+        credential=credential, endpoint=TABLE_ENDPOINT, table_name=table_name
     )
 
     now = datetime.now()
@@ -156,7 +158,7 @@ def fetch_charger_data(
     start_iso = start_time.strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
     filter_str = (
-        f"PartitionKey eq 'EASEE_{obs_id}' "
+        f"PartitionKey eq '{provider}_{obs_id}' "
         f"and RowKey gt '{charging_unit.charger_id}_{start_iso}' "
         f"and RowKey lt '{charging_unit.charger_id}_{now_iso}'"
     )
@@ -190,7 +192,11 @@ def merge_data(
                     ChargingUnitComplete(
                         **cu.__dict__,
                         timestamp=obs.timestamp,
-                        value_kWh=obs.value,
+                        value_kWh=(
+                            float(obs.value) / 1000
+                            if float(obs.value) > 30
+                            else float(obs.value)
+                        ),
                         observation_id=obs.observation_id,
                     )
                 )
@@ -208,7 +214,7 @@ def aggregate_data(df: pd.DataFrame) -> (pd.DataFrame, pd.DataFrame):
         report_site_level: Aggregated at site_key, timestamp to get total usage per hour at the site.
     """
     # Ensure correct types
-    df["timestamp"] = pd.to_datetime(df["timestamp"])
+    df["timestamp"] = pd.to_datetime(df["timestamp"], format='ISO8601')
     df["value_kWh"] = pd.to_numeric(df["value_kWh"])
     df["circuit_power_kw"] = pd.to_numeric(df["circuit_power_kw"])
 
@@ -266,14 +272,11 @@ def prepare_hourly_data(
     For each site and circuit, create a full grid of (day, hour) combinations for the given period
     and merge with the existing report data to fill missing hours with zeros.
     """
-    # Extract day and hour from timestamp
-    report_df["day"] = report_df["timestamp"].dt.day
-    report_df["hour"] = report_df["timestamp"].dt.hour.astype(int)
-
     # Group by day/hour and take the mean (or sum) as needed
     # For circuit level we keep sum_value_kWh and chargers aggregated
+    report_df["timestamp"] = report_df["timestamp"].dt.floor("h")
     hourly_data = report_df.groupby(
-        ["site_key", "name", "circuit_id", "day", "hour"], as_index=False
+        ["site_key", "name", "circuit_id", "timestamp"], as_index=False
     ).agg(sum_value_kWh=("sum_value_kWh", "mean"), chargers=("chargers", "mean"))
 
     # Add circuit power info back
@@ -293,17 +296,24 @@ def prepare_hourly_data(
 
     # Expand data to include all possible day-hour combinations for each site-circuit
     expanded_data = []
+
+    range_dates = pd.date_range(
+        start=hourly_data["timestamp"].min().normalize(),
+        end=hourly_data["timestamp"].max().normalize(),
+        freq="h",
+    )
+
     for (site, circuit), sub_df in hourly_data.groupby(["site_key", "circuit_id"]):
         # Assume 31 days and 24 hours as in original code
         all_combinations = pd.MultiIndex.from_product(
-            [[site], [circuit], range(1, 32), range(24)],
-            names=["site_key", "circuit_id", "day", "hour"],
+            [[site], [circuit], range_dates],
+            names=["site_key", "circuit_id", "timestamp"],
         ).to_frame(index=False)
 
         merged = pd.merge(
             all_combinations,
             sub_df,
-            on=["site_key", "circuit_id", "day", "hour"],
+            on=["site_key", "circuit_id", "timestamp"],
             how="left",
         ).fillna(
             {
@@ -317,8 +327,15 @@ def prepare_hourly_data(
         expanded_data.append(merged)
 
     expanded_data = pd.concat(expanded_data, ignore_index=True).sort_values(
-        by=["site_key", "circuit_id", "day", "hour"]
+        by=["site_key", "circuit_id", "timestamp"]
     )
+
+    # lookup name from site_key
+    expanded_data["name"] = expanded_data["site_key"].apply(
+        lambda x: df_original[df_original["site_key"] == x]["name"].values[0]
+    )
+
+    expanded_data.to_csv("data/expanded_data.csv")
 
     return expanded_data
 
@@ -367,10 +384,7 @@ def plot_data(
 
             fig.add_trace(
                 go.Bar(
-                    x=[
-                        [f"{day}" for day in circuit_data["day"]],
-                        [f"{hour:02}" for hour in circuit_data["hour"]],
-                    ],
+                    x=circuit_data["timestamp"],
                     y=circuit_data["sum_value_kWh"],
                     name=f"Circuit {circuit}",
                     legendgroup=f"site_{site}",
@@ -393,33 +407,7 @@ def plot_data(
     fig.write_html("index.html")
 
 
-def process_data():
-    # Fetch static charging unit info
-    charging_units = get_charging_unit_data()
-
-    # Fetch observation data (parallel)
-    obs_results = []
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        futures = [
-            executor.submit(fetch_charger_data, cu, obs_id, DAYS_BACK_IN_TIME)
-            for cu in charging_units
-            for obs_id in OBS_IDS
-        ]
-        for future in concurrent.futures.as_completed(futures):
-            obs_results.extend(future.result())
-
-    if not obs_results:
-        print("No data found")
-        return
-
-    # Merge data
-    complete_data = merge_data(charging_units, obs_results)
-    if not complete_data:
-        print("No valid observation data found.")
-        return
-
-    df = pd.DataFrame([d.__dict__ for d in complete_data])
-
+def save_data(df, charging_units, provider):
     old_df = df.copy()
 
     # Aggregate data at circuit and site levels
@@ -440,6 +428,7 @@ def process_data():
 
     # Prepare hourly data (expanding to all day-hour combinations)
     # We'll work with circuit-level report here
+
     expanded_data = prepare_hourly_data(report_circuit_level, df)
 
     # Extract unique site names for the plotting function
@@ -450,10 +439,14 @@ def process_data():
     plot_data(expanded_data, site_names, circuit_highest_peaks)
 
     # Write highest peaks averages to CSV for reference
-    site_highest_peaks.to_csv("data/site_highest_peaks_avg.csv", index=False)
-    circuit_highest_peaks.to_csv("data/circuit_highest_peaks_avg.csv", index=False)
+    site_highest_peaks.to_csv(
+        f"data/{provider}/site_highest_peaks_avg.csv", index=False
+    )
+    circuit_highest_peaks.to_csv(
+        f"data/{provider}/circuit_highest_peaks_avg.csv", index=False
+    )
 
-    old_df["timestamp"] = pd.to_datetime(old_df["timestamp"])
+    old_df["timestamp"] = pd.to_datetime(old_df["timestamp"], format='ISO8601')
     old_df.set_index("timestamp", inplace=True)
 
     # Resample from noon to noon:
@@ -474,15 +467,52 @@ def process_data():
         ["site_key", "name", "circuit_id"], as_index=False
     ).agg(avg_value_kWh=("sum_value_kWh", "mean"))
 
-    circuit_avg['avg_value_kWh'] = np.ceil(circuit_avg['avg_value_kWh']) + 1
-    circuit_avg["site_id"] = circuit_avg["site_key"].apply(lambda x: [cu.site_id for cu in charging_units if cu.site_key == x][0])
-    circuit_avg['voltage'] = circuit_avg['site_key'].apply(lambda x: [cu.net_v for cu in charging_units if cu.site_key == x][0])
-    circuit_avg['amps'] = np.round(circuit_avg['avg_value_kWh'] * 1000 / (circuit_avg['voltage'] * math.sqrt(3)))
-    circuit_avg.to_csv("data/circuit_avg.csv")
-    daily_sums_circuits.to_csv("data/daily_sums_circuits.csv")
+    circuit_avg["avg_value_kWh"] = np.ceil(circuit_avg["avg_value_kWh"]) + 1
+    circuit_avg["site_id"] = circuit_avg["site_key"].apply(
+        lambda x: [cu.site_id for cu in charging_units if cu.site_key == x][0]
+    )
+    circuit_avg["voltage"] = circuit_avg["site_key"].apply(
+        lambda x: [cu.net_v for cu in charging_units if cu.site_key == x][0]
+    )
+    circuit_avg["amps"] = np.round(
+        circuit_avg["avg_value_kWh"] * 1000 / (circuit_avg["voltage"] * math.sqrt(3))
+    )
+    circuit_avg.to_csv(f"data/{provider}/circuit_avg.csv")
+    daily_sums_circuits.to_csv(f"data/{provider}/daily_sums_circuits.csv")
 
     daily_sums = old_df.resample("24h", offset="12h")["value_kWh"].sum()
-    daily_sums.to_csv("data/daily_sums.csv")
+    daily_sums.to_csv(f"data/{provider}/daily_sums.csv")
+
+
+def process_data():
+    # Fetch static charging unit info
+    charging_units = get_charging_unit_data()
+
+    # Fetch observation data (parallel)
+    obs_results = []
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        futures = [
+            executor.submit(
+                fetch_charger_data, cu, obs_id, DAYS_BACK_IN_TIME, PROVIDER, TABLE_NAME
+            )
+            for cu in charging_units
+            for obs_id in OBS_IDS
+        ]
+        for future in concurrent.futures.as_completed(futures):
+            obs_results.extend(future.result())
+
+    if not obs_results:
+        print("No data found")
+        return
+
+    # Merge data
+    complete_data = merge_data(charging_units, obs_results)
+    if not complete_data:
+        print("No valid observation data found.")
+        return
+
+    df = pd.DataFrame([d.__dict__ for d in complete_data])
+    save_data(df, charging_units, PROVIDER)
 
 
 if __name__ == "__main__":

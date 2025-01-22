@@ -1,0 +1,10 @@
+,site_key,name,circuit_id,avg_value_kWh,site_id,voltage,amps
+0,28T4-7722,Lønnegaarden Terrasse,638822,7.0,676196,400,10.0
+1,28T4-7722,Lønnegaarden Terrasse,638823,8.0,676196,400,12.0
+2,6M6M-7222,Hallingstadskogen - Hyllvegen - Oppgang 13C,45738,7.0,22930,230,18.0
+3,6M6M-7222,Hallingstadskogen - Hyllvegen - Oppgang 13C,740671,5.0,22930,230,13.0
+4,EMRB-G222,Eplehaven 2,57480,6.0,58590,400,9.0
+5,RYW8-C322,Holkebylia 5 BRL,165926,7.0,172915,230,18.0
+6,RYW8-C322,Holkebylia 5 BRL,166092,5.0,172915,230,13.0
+7,TRED-E222,Pardisvegen,54688,4.0,50610,400,6.0
+8,ZQK6-W522,Martin Skatvedts vei 8-10 - Rundingen,482879,6.0,508486,230,15.0

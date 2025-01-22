@@ -6,7 +6,7 @@ import requests
 
 load_dotenv()
 
-data = pd.read_csv("data/circuit_avg.csv")
+data = pd.read_csv("data/EASEE/circuit_avg.csv")
 
 # for each row in the data do a request to api
 
