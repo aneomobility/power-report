@@ -1,9 +1,0 @@
-,site_key,name,circuit_id,avg_value_kWh,site_id,voltage,amps
-0,cd1dc99e-8e04-4028-923c-45dc18d844a0,Kollen BRL - Område 2 (Tavle: Bølerlia elbil 2),08f761c5-2f08-49ad-baa3-84328deb6272,6.0,cd1dc99e-8e04-4028-923c-45dc18d844a0,230,15.0
-1,cd1dc99e-8e04-4028-923c-45dc18d844a0,Kollen BRL - Område 2 (Tavle: Bølerlia elbil 2),9c765405-f93d-4fcb-836b-b817c3757ef6,7.0,cd1dc99e-8e04-4028-923c-45dc18d844a0,230,18.0
-2,cd1dc99e-8e04-4028-923c-45dc18d844a0,Kollen BRL - Område 2 (Tavle: Bølerlia elbil 2),aa6a828f-ce6f-42d1-89c8-b49561276ba8,7.0,cd1dc99e-8e04-4028-923c-45dc18d844a0,230,18.0
-3,cd1dc99e-8e04-4028-923c-45dc18d844a0,Kollen BRL - Område 2 (Tavle: Bølerlia elbil 2),b8ca81ac-9b32-4d4d-9bcf-0b292b359e3d,6.0,cd1dc99e-8e04-4028-923c-45dc18d844a0,230,15.0
-4,f9d9ba39-fc02-4ee5-8def-e3d92c8cc219,Sameiet Romemyra Boligområde,1e318844-395b-4f62-addf-8d5dcd6e10cb,5.0,f9d9ba39-fc02-4ee5-8def-e3d92c8cc219,400,7.0
-5,f9d9ba39-fc02-4ee5-8def-e3d92c8cc219,Sameiet Romemyra Boligområde,8fbb9818-183f-4e4b-9ec4-48b71e5dc8c3,6.0,f9d9ba39-fc02-4ee5-8def-e3d92c8cc219,400,9.0
-6,f9d9ba39-fc02-4ee5-8def-e3d92c8cc219,Sameiet Romemyra Boligområde,9c877170-39b7-4a10-85dc-927d7d424987,5.0,f9d9ba39-fc02-4ee5-8def-e3d92c8cc219,400,7.0
-7,f9d9ba39-fc02-4ee5-8def-e3d92c8cc219,Sameiet Romemyra Boligområde,c6eea953-301b-40d4-baa3-4c8aad84210f,6.0,f9d9ba39-fc02-4ee5-8def-e3d92c8cc219,400,9.0

@@ -1,0 +1,1125 @@
+,site_key,name,avg_value_kW,site_id,voltage,amps
+0,23TA-6222,Mårvegen,10.0,17508,400.0,14.0
+1,24U4-G222,Frusethenga Tun 5 og 6,6.0,57704,230.0,15.0
+2,25AJ-V222,Sundstredet,15.0,112672,230.0,38.0
+3,26NP-C722,Lyshovden Sone 4,13.0,699088,230.0,33.0cd .
+4,27CZ-2622,Sameiet Hansastø,8.0,528296,230.0,20.0
+5,27P2-6722,Flisvika Brygge,10.0,671828,400.0,14.0
+6,27WM-P622,Bjørndalsskogen Borettslag Blokk 2,8.0,612848,,
+7,28GD-L522,Holmen,8.0,468408,400.0,12.0
+8,28T4-7722,Lønnegaarden Terrasse,7.0,676196,400.0,10.0
+9,2A6J-3722,Vestre Hetlevikhøyden Brl.  Område 1 og 2,10.0,661521,230.0,25.0
+10,2AMG-Y622,Bjerkealleen BT2,8.0,649037,400.0,12.0
+11,2AMS-5522,Lier Hageby - Carport,11.0,408653,400.0,16.0
+12,2B3A-8222,Rate Terrasse,6.0,25605,400.0,9.0
+13,2DYA-A422,Einerlien Borettslag - Gamle Mathopsveien,6.0,296057,230.0,15.0
+14,2EUX-X422,Alfred Trønsdals veg 20 og Othilienborgtunet 15,7.0,384745,230.0,18.0
+15,2FT6-8622,Sameiet Marieroveien 7-17,6.0,549477,,
+16,2HTQ-4422,Sameiet Hegdehaugsveien 36,10.0,273253,230.0,25.0
+17,2JTC-5222,Bringebærhagen,8.0,13670,400.0,12.0
+18,2K43-E222,Ulsholt brl kjeller 1,10.0,49290,230.0,25.0
+19,2K7B-B222,Smørblomstveien 26-28,8.0,38038,400.0,12.0
+20,2L4W-R722,Tingvegen Sone 1.1 & 1.2,10.0,753162,230.0,25.0
+21,2M2Q-M422,Sameiet Rosenlund Park,9.0,342786,400.0,13.0
+22,2N3X-J822,Yippi BB1 - Fortunalia,9.0,855686,400.0,13.0
+23,2NR6-X422,Søndre Veitvedt,10.0,381534,230.0,25.0
+24,2NVY-L222,Stølstunet,8.0,77678,400.0,12.0
+25,2P7F-V222,Nedre Langeland I,8.0,112278,230.0,20.0
+26,2PE9-B222,Grevlingveien 13 plasser ute mot gjerdet,6.0,37810,230.0,15.0
+27,2Q5Z-R222,Eineberg Vel,10.0,98190,230.0,25.0
+28,2SWW-7222,Hallset Hage,8.0,24179,400.0,12.0
+29,2TQ3-9222,Furulundtoppen 19,4.0,28891,230.0,10.0
+30,2TRD-V222,Meklenborg brl Hovseterveien 46,5.0,112095,230.0,13.0
+31,2UD6-M522,"Sundekrossen Brl, Sundelia 24",7.0,471599,400.0,10.0
+32,2VYH-V222,Elvebredden Borettslag,6.0,112635,230.0,15.0
+33,2VYX-8222,Manesjen 4,6.0,28411,400.0,9.0
+34,2VZ7-9222,Skullerudhøgda II - GEV 73,8.0,29439,230.0,20.0
+35,2Y9U-G322,Ole Nypans vei,9.0,191775,400.0,13.0
+36,2ZV4-R522,Romolslia 46-56,6.0,487791,230.0,15.0
+37,32WR-H722,Bjerkealleen BT3,9.0,719856,400.0,13.0
+38,34KE-V222,Meklenborg brl Hovseterveien 40,7.0,112196,230.0,18.0
+39,34RV-U622,Liaparken Borettslag B1,13.0,634332,,
+40,366K-6222,Senterparken Borettslag,8.0,18576,400.0,12.0
+41,3AWX-H422,Mistelpark - Parkeringskjeller - Felt 1,9.0,327409,400.0,13.0
+42,3BUU-4222,Ingemann torps vei 15 - SØR,7.0,11625,400.0,10.0
+43,3C2Q-8522,Rødberget Garasjelag SA,11.0,420609,230.0,28.0
+44,3DS7-8222,Vingesvingen,9.0,25313,400.0,13.0
+45,3E4W-A222,Parkeringskjeller - Fernanda Nissens Gate 10,13.0,36361,400.0,19.0
+46,3F45-U222,Kjeller Park,8.0,106889,230.0,20.0
+47,3G42-9222,Vallefjell 2 brl,5.0,28681,230.0,13.0
+48,3GE5-7222,Lia - omeråde nedre,5.0,20913,230.0,13.0
+49,3JAA-C222,Olstadmoen HUS 2,6.0,42018,400.0,9.0
+50,3JMU-9622,Straume Teknologisenter - område 2,15.0,556366,400.0,22.0
+51,3JQZ-4422,Voll Stundentby 1,6.0,274394,400.0,9.0
+52,3JSP-G222,Saupstadringen 39,8.0,60130,230.0,20.0
+53,3JSX-P422,Fuglevegen - Bokfinkvegen,6.0,351970,230.0,15.0
+54,3KSJ-U422,Øvre Grorud - Parkering i krysset Gangstuveien og Nordtvetveien,12.0,370786,230.0,30.0
+55,3KX4-R522,Elveslettvegen 67 - 113 (oddetall),10.0,487798,400.0,14.0
+56,3L5W-B222,Kolstadflata 37-47,12.0,40462,230.0,30.0
+57,3LT7-F622,Alfred Trønsdals veg 17-19,10.0,578278,230.0,25.0
+58,3MUH-Y422,Børgin Sjøside A og C - Krokenvegen AS (BT1),8.0,387050,400.0,12.0
+59,3MXW-A222,Bekkestua Vest - Bærumsveien 240,8.0,36470,400.0,12.0
+60,3NUD-N322,Kobberoed,3.0,214506,,
+61,3PKR-N222,Oppdatert Site - Bærumsveien 238,11.0,84934,400.0,16.0
+62,3PNX-H222,Sameiet Nye Potten,5.0,65234,230.0,13.0
+63,3PUP-M322,Kvislaparken BT1,8.0,211690,400.0,12.0
+64,3R3J-H622,K. O. Thornæs veg 8-12,8.0,587782,230.0,20.0
+65,3S5G-8222,Skullerudhøgda II - GEV 51,6.0,26383,230.0,15.0
+66,3TK6-7322,Tokerudtoppen - Tokerudberget 16-20,7.0,152135,230.0,18.0
+67,3VN3-T322,Barkaleitet Borettslag - Blokk A,8.0,233683,230.0,20.0
+68,3VN4-W422,Sameiet Fjordhagen 2,8.0,377171,,
+69,3VP3-G222,Fetsund stasjonsby,13.0,57559,400.0,19.0
+70,3W65-6222,Anton Bergs Terrasse,8.0,16787,400.0,12.0
+71,3XM3-E422,Brf Bryggargatan 9,5.0,311503,400.0,7.0
+72,3Y6Z-D222,Heimdalsporten (p-plass nr. 1-55 og 71-109),15.0,49043,400.0,22.0
+73,3YGH-8222,Eierseksjonsameiet Østre Asker Gård,8.0,26555,230.0,20.0
+74,3YLL-D222,Trondheim Parkering - Nedre Bakklandet Garasje,9.0,47435,230.0,23.0
+75,42ZX-8222,Manesjen 3,11.0,28412,400.0,16.0
+76,43JC-Z222,Hamremarken Sameie,9.0,128320,230.0,23.0
+77,44FL-A722,Atlanteren Bb2,9.0,690484,400.0,13.0
+78,455Z-2822,Sandbekken 2 UF Kurs 2-4,8.0,790412,,
+79,462E-V222,Meklenborg brl Hovseterveien 32,8.0,112128,230.0,20.0
+80,462Y-8222,Manesjen 11,7.0,28416,400.0,10.0
+81,46U4-R522,Elveslettvegen 45 - 63 (oddetall),9.0,487784,400.0,13.0
+82,473Y-J622,Vestliskogen,7.0,593668,230.0,18.0
+83,47FL-4322,Sole Alle 6,5.0,141620,400.0,7.0
+84,47FS-B222,Karolinerveien 10,5.0,39988,400.0,7.0
+85,47VF-Z322,Giljehagen,9.0,259820,400.0,13.0
+86,482M-K522,Bergkrystallen,7.0,465280,230.0,18.0
+87,48FV-N222,Stokkøya Sjøsenter (Strandhotell),7.0,85428,230.0,18.0
+88,48JF-J222,Nybu Catinka Guldbergs veg 19,4.0,67264,230.0,10.0
+89,496W-B222,Høgreina P-hus,30.0,40464,230.0,75.0
+90,49E4-3722,TB3 - Næring,6.0,659760,400.0,9.0
+91,49NW-G822,Langenga - P-kjeller - Hus 5 til 6,8.0,847440,400.0,12.0
+92,49QJ-V222,Kronstadparken N3,11.0,112728,400.0,16.0
+93,49VA-M222,Fjordhagen nord,15.0,78956,400.0,22.0
+94,49Y7-F622,Othilienborgvegen 50,5.0,578296,230.0,13.0
+95,4A3X-F522,Tillertunet 3 Borettslag,9.0,450181,400.0,13.0
+96,4A68-G222,Persaunet omsorgsboliger,10.0,58129,400.0,14.0
+97,4B5W-R722,Fjøsmestervegen Sone 2.1,8.0,753165,230.0,20.0
+98,4C53-E222,Ulsholt brl p-kjeller 2 midt,9.0,49293,230.0,23.0
+99,4F49-3322,Kubbedalstunet Sameiet,8.0,136073,400.0,12.0
+100,4F6G-8222,Skullerudhøgda II - GEV 65,8.0,26385,230.0,20.0
+101,4FB7-8222,Strandheim Terrasse,8.0,25253,400.0,12.0
+102,4G9X-H322,Høgreina uteparkering,7.0,196253,,
+103,4GL3-G222,Karihaugen brl,12.0,57545,230.0,30.0
+104,4GLJ-Q522,Ullernåsen - Gjesteplasser ute Bygg 8/Joker,4.0,485449,230.0,10.0
+105,4GZA-Y522,Eidesåsen 33 Rossaskjeldo Sameie,5.0,517245,230.0,13.0
+106,4H2K-D522,Apalløkka,9.0,440449,230.0,23.0
+107,4H2P-D622,Selma Ellefsens vei 9 - P-kjeller,15.0,572033,400.0,22.0
+108,4HHW-P622,Fri Flyt Hemmingstad Borettslag Sone 1,6.0,613949,230.0,15.0
+109,4JC6-6222,Strømmen parkeringssameie,8.0,16938,400.0,12.0
+110,4JJW-P622,Fri Flyt Hemmingstad Borettslag Sone 3,8.0,613954,230.0,20.0
+111,4LH5-A522,Fagerlia Hageby BRL (Nr5) v/ Schiøtz' vei 19,9.0,426430,400.0,13.0
+112,4LNP-7222,Solkroken 3 Sameie,11.0,23250,400.0,16.0
+113,4N9T-D222,Smiberget område C2,9.0,48286,,
+114,4NE6-Z622,Melhustorget BT1.1,11.0,651826,400.0,16.0
+115,4NJ3-6722,Stallmestervegen garasjer 29-33,5.0,671938,,
+116,4P9N-6222,Mellomila 88,6.0,18974,400.0,9.0
+117,4PST-X322,Øreåsen brl,9.0,253154,230.0,23.0
+118,4QJ5-F222,Langerinden Borettslag - B 156-158,8.0,53698,230.0,20.0
+119,4QVC-N222,Njordsveg 24,5.0,83310,,
+120,4THF-J222,Nybu Catinka Guldbergs veg 17,4.0,67263,230.0,10.0
+121,4TRL-C522,Ullernåsen - Bygg 7,9.0,436575,230.0,23.0
+122,4VSX-X322,Klemskvartalet,8.0,253667,400.0,12.0
+123,4XJ6-V322,Sameiet Brim Sjøhaugen,7.0,242243,400.0,10.0
+124,4XXZ-Q422,Reinsholm BRL Nr. 1-3,5.0,356343,400.0,7.0
+125,4ZEZ-Z522,Sameiet Klostergata 61,8.0,524211,230.0,20.0
+126,4ZHQ-A522,Møllen Sameie - Ytre område,8.0,428863,400.0,12.0
+127,4ZWD-P322,Lundentunet Borettslag,7.0,218611,400.0,10.0
+128,5236-E222,Skovgård konglevegen,5.0,49668,,
+129,54M6-W522,Vennersberg 1,5.0,508492,230.0,13.0
+130,54Z8-7222,Liakroken Borettslag,11.0,21372,230.0,28.0
+131,57ML-D222,Trondheim Parkering - Ila Garasje,6.0,47436,230.0,15.0
+132,5825-P622,Sameiet Ole Vigs gate 30 Stjørdal,7.0,610688,230.0,18.0
+133,58BX-C222,Åsenhagen foran rekke 31,7.0,44708,230.0,18.0
+134,58SD-9222,Sameiet Okstad Hageby B9,16.0,30176,400.0,23.0
+135,59EB-Q222,Sameiet Hundreogfemtien,9.0,91312,400.0,13.0
+136,5AJ5-L722,Varden Borettslag - Garasje 1-20,10.0,729537,,
+137,5B2C-U622,Stugudal Landhandel - AC Lading,6.0,632065,400.0,9.0
+138,5BWH-3722,Ola Frosts veg 3,14.0,661489,400.0,20.0
+139,5CGG-7522,Krohnviken Sameie,11.0,415545,,
+140,5CSV-M422,Villa Asker,6.0,343521,230.0,15.0
+141,5CW4-R522,Romolslia 58-82,11.0,487793,,
+142,5DBM-T422,Nordlia Borettslag,8.0,367013,230.0,20.0
+143,5ER4-D222,Brundalen BRL Aunegrenda,15.0,45405,230.0,38.0
+144,5F7J-Y222,Saupstadringen 2a,7.0,124949,,
+145,5FCK-V422,Hetlevikhøyden Borettslag Område 2,9.0,374953,,
+146,5FWP-P222,Bergheim Terrasse - SØR,7.0,88817,400.0,10.0
+147,5H87-8222,"Vistespeilet Borettslag, bygg B",5.0,25241,400.0,7.0
+148,5HDX-G222,Rolland Borettslag Blokk A,5.0,61101,230.0,13.0
+149,5HE8-5222,Brekkedammen parkeringskjeller,7.0,13105,400.0,10.0
+150,5J6D-N322,Olsvikfjellet Huseierforening,10.0,214418,230.0,25.0
+151,5JT4-5622,Sameiet Maries gate 12,6.0,536934,230.0,15.0
+152,5KUC-2322,Sameiet Fasit - Parkeringskjeller,14.0,132458,400.0,20.0
+153,5KVM-N322,Romeriksåsen BKS 1 P-kjeller,10.0,215534,400.0,14.0
+154,5LYA-H322,Dansebakken AS,5.0,193658,230.0,13.0
+155,5MUF-W522,Havstad Torg,10.0,509674,400.0,14.0
+156,5NWD-H222,Hjørnerød brl,7.0,62962,230.0,18.0
+157,5NYA-6222,Ordførerens nye hage,6.0,17530,230.0,15.0
+158,5PRJ-C722,Godlia,8.0,698462,230.0,20.0
+159,5PTZ-M222,Tingvegen Sone 1.3,6.0,81894,230.0,15.0
+160,5QFN-P622,Bjørndalsskogen Borettslag Blokk 3,8.0,612918,,
+161,5RNV-N222,Jernbanepersonalets Borettslag 2,5.0,85458,230.0,13.0
+162,5RXH-2722,Krydderhagen Kjeller 1 Tavle 1,20.0,657398,,
+163,5T2S-K422,Eventyrstien BRL,5.0,334851,230.0,13.0
+164,5T7V-6222,Lagmann lindboes vei 24,9.0,19863,230.0,23.0
+165,5TZJ-X622,Øyjorden Borettslag Uteparkering,9.0,645247,230.0,23.0
+166,5U4V-4322,Landåsleitet Boligselskap III,6.0,142731,230.0,15.0
+167,5ULZ-7222,Nedre Bergheim,11.0,24523,400.0,16.0
+168,5V7M-8622,Vestlien Terrasse - Blokk 1,7.0,551319,230.0,18.0
+169,5WRG-8522,Øvre Grorud - Rekkegarasje ved Gangstuveien 10,2.0,419679,230.0,5.0
+170,5X6D-E722,Sameiet Ranheim Vestre I,10.0,705939,400.0,14.0
+171,5XLV-H522,Øvre Morvik SA - Tun 1,7.0,458187,230.0,18.0
+172,5XM2-D222,Frusethenga Tun 1 og 2,5.0,45135,230.0,13.0
+173,5Y7E-8522,Lid Borettslag v. liakroken 20,7.0,419351,230.0,18.0
+174,5YE6-6222,Bruket brygge,13.0,16947,400.0,19.0
+175,5YMV-2322,Skjettengrenda Borettslag 1-5,6.0,134607,400.0,9.0
+176,5YX5-K522,Skulpturen,10.0,463351,400.0,14.0
+177,5ZJN-8222,Sameiet Bassengvegen 6,7.0,27203,230.0,18.0
+178,64R7-K222,Solehøyden,11.0,70364,400.0,16.0
+179,65TF-E622,FRI FLYT Casper lundes veg,7.0,575204,,
+180,65X3-J322,Bjørnefaret brl,6.0,196852,230.0,15.0
+181,675X-F522,Sameiet Sivert Thonstads vei 2,6.0,450188,230.0,15.0
+182,67A6-T222,Midtveien 8,16.0,102944,400.0,23.0
+183,67KJ-C522,Sagparken Harestua,11.0,436292,400.0,16.0
+184,67RT-F422,Malerhaugen Park AS,9.0,318684,400.0,13.0
+185,68JB-8222,Vika Terrasse 7-9-11,7.0,25792,230.0,18.0
+186,68RW-2822,Kolstadtunet 6A-6E,6.0,790108,,
+187,6933-E222,Skovgård hørløck,4.0,49284,230.0,10.0
+188,69TW-8222,Linderudveien Boligsameie,10.0,28260,230.0,25.0
+189,6ADT-V222,Løken - Parkeringshuset - Revidert,13.0,113837,,
+190,6AM4-3622,Borettslaget Vestre,21.0,528717,230.0,53.0
+191,6AWZ-L222,Heimstadeggen Boligsameie - Nord,8.0,77809,400.0,12.0
+192,6AZ7-F222,Sameiet Prestaskjersarmen 4,9.0,54013,400.0,13.0
+193,6C3W-R422,Sameiet Reinvegen,7.0,359941,400.0,10.0
+194,6GPL-G722,Bessaker Aneo,8.0,715093,,
+195,6JFC-9522,Øvre Grorud - Rekkegarasjen ovenfor Gangstuveien 8A,8.0,423222,230.0,20.0
+196,6LEY-6222,Sameiet Lofthus Panorama,9.0,20274,400.0,13.0
+197,6LLJ-H522,Sameiet Hove Vest,12.0,456778,400.0,17.0
+198,6M6M-7222,Hallingstadskogen - Hyllvegen - Oppgang 13C,7.0,22930,230.0,18.0
+199,6MJW-V222,Bøkekrona BRL,5.0,114242,230.0,13.0
+200,6MT5-K622,Vestliskogen,9.0,594406,230.0,23.0
+201,6NDE-E522,Sledevegen BRL,4.0,443950,400.0,6.0
+202,6PB4-A522,Fagerlia Hageby BRL v/ Fagerliveien 26 & Garasjer,8.0,426278,400.0,12.0
+203,6QQ6-R222,Spikkestadbakken brl øvre,5.0,94810,230.0,13.0
+204,6S8K-A722,Langenga - P-kjeller - Hus 1 til 4,17.0,690331,400.0,25.0
+205,6THB-8222,Vika Terrasse 1-3-5,6.0,25791,230.0,15.0
+206,6UEA-L322,Sameiet Vestvendt,7.0,205875,400.0,10.0
+207,6UR7-E222,Hornebergtunet rekkehusene Seksjon 4-5,10.0,49887,400.0,14.0
+208,6VM4-H322,Utsikten kolvereid,4.0,192847,400.0,6.0
+209,6VW8-Z622,Realsameiet Rømmetunet Blokk E,10.0,652147,400.0,14.0
+210,6W74-D222,Lillian Byes veg 6,9.0,45335,400.0,13.0
+211,6WNR-5522,Signaturhagen Kongsberg,12.0,408531,400.0,17.0
+212,6XGE-Q322,Starrmyra Borettslag - Parkeringshust & takparkering,12.0,222779,230.0,30.0
+213,6Y3J-A822,Steinsfjorden Garasjeanlegg CDE,10.0,821255,400.0,14.0
+214,6YD6-7322,Tokerudtoppen - Tokerudberget 2-6,12.0,152111,230.0,30.0
+215,6ZTG-8222,Øvre Klostertunet Borettslag,7.0,26471,400.0,10.0
+216,6ZVG-A522,Wesselkvartalet U3 Tavle 2,4.0,427887,,
+217,72TW-7222,Tingvegen Sone 1.4,5.0,24164,230.0,13.0
+218,73M3-9222,"Vallefjell 1 Ute mot 6,8",5.0,28876,230.0,13.0
+219,73ZJ-Q522,Ullernåsen - Bygg 4,11.0,485500,230.0,28.0
+220,74AA-3722,Øvre Nyhavna BT4,11.0,660512,400.0,16.0
+221,75PY-6222,Borettslaget Lunden 28 30,7.0,20308,400.0,10.0
+222,76FP-T522,Sameiet Bryggen Terrasse,7.0,498356,400.0,10.0
+223,76W2-K222,Løvåsen Borettslag - Parkeringsområde ved blokk nr. 11,8.0,69744,230.0,20.0
+224,799R-K222,Skolebakken Boligsameie,7.0,72604,230.0,18.0
+225,7AKL-D222,Selsbakkhøgda BRL,6.0,47429,,
+226,7CAS-9222,FRI FLYT Energibygget Lerkendal,15.0,31777,400.0,22.0
+227,7D2P-8222,Storbakken Terrasse 27B,7.0,27265,230.0,18.0
+228,7DXJ-C222,Kroken Hage Borettslag BT3 & BT4,10.0,43125,400.0,14.0
+229,7EK6-6222,Tangen grendelag v Ternevegen,8.0,16965,230.0,20.0
+230,7F56-E222,Refsnes  terrasse nord,7.0,49677,230.0,18.0
+231,7GXN-T722,Øvre Steinaunet BB3,8.0,760437,400.0,12.0
+232,7HSY-5222,"Åråsveien 17, Dbo Brl",6.0,16225,230.0,15.0
+233,7JQ4-7322,Boligsameiet Hafslundtunet,7.0,151898,400.0,10.0
+234,7KXG-A522,Wesselkvartalet U2 Tavle 1,14.0,427894,400.0,20.0
+235,7LKH-E222,Væretrøa park uteparkering,7.0,51142,400.0,10.0
+236,7MTC-Q422,Ytre-Vikna Vindkraftverk,10.0,353638,400.0,14.0
+237,7PEY-9222,Sykehusveien Boligsameie,5.0,32562,230.0,13.0
+238,7PJY-B822,Søndre fjellstad BRL Garasjeanlegg v EM,9.0,827202,230.0,23.0
+239,7PKU-Y222,Stallmestervegen,8.0,126278,230.0,20.0
+240,7R7U-9222,"AL Stykkje Burettslag, øst",5.0,32022,230.0,13.0
+241,7T4W-B322,Stallmestervegen Garasjer 68-78,6.0,171531,,
+242,7U4N-C222,SAMEIET HØVIKVEIEN 2 C,9.0,43531,400.0,13.0
+243,7VLX-4322,Bakkely lite garasjeområde,8.0,143051,230.0,20.0
+244,7W49-B322,Fagerlunden Vel,10.0,168843,400.0,14.0
+245,7WS2-D222,Høgreina rekkeharasjer og ute,4.0,45155,230.0,10.0
+246,7X4M-7222,Hallingstadskogen - Syrinvegen - Oppgang 15B,7.0,22923,230.0,18.0
+247,7Y5L-Z422,"Søre Skeisvann Borettslag, Blokk 6",6.0,391439,,
+248,82KA-X422,Orkesterplassen Kimen,11.0,382020,400.0,16.0
+249,82M7-X622,Klokkerjordet,9.0,643788,230.0,23.0
+250,82RY-B822,Søndre Fjellstad Garasjeanlegg v T.N,10.0,827228,230.0,25.0
+251,82W5-X422,Søndre Veitvedt brl,5.0,381424,230.0,13.0
+252,82X8-Z622,Realsameiet Rømmetunet Blokk B,8.0,652148,400.0,12.0
+253,8322-R422,Reinsholm BRL Nr. 15,7.0,356352,400.0,10.0
+254,84AT-4222,Innherredsveien 2c,7.0,11424,400.0,10.0
+255,84UU-G822,Steinsfjorden  Terrasse garasjeanlegg Bygg B,6.0,847208,400.0,9.0
+256,85Q2-2322,Firbladskogen,8.0,131160,230.0,20.0
+257,878G-9222,Lade Entre Borettslag,6.0,30488,400.0,9.0
+258,8AXX-9222,Ringvål Park,13.0,32501,230.0,33.0
+259,8B38-V322,Jessheim Hageby,14.0,242437,400.0,20.0
+260,8CFV-B622,Grindene 2,6.0,564661,230.0,15.0
+261,8CKM-W222,Bratthammeren,14.0,117189,230.0,35.0
+262,8DJ8-L222,Torsveg 9 nardo Søndre,5.0,74561,,
+263,8DYZ-Q422,Reinsholm BRL Nr. 9,7.0,356345,400.0,10.0
+264,8FLX-6222,Bergheim Amfi,13.0,20169,400.0,19.0
+265,8FXX-N422,Quadraturen,9.0,347893,400.0,13.0
+266,8G69-N622,FRI FLYT Saupstadringen 4-10,9.0,607121,,
+267,8J54-B222,Bekkestua Vest - Bærumsveien 218,3.0,37134,400.0,4.0
+268,8J8A-L222,konsul knudtzons gate 6,8.0,74778,400.0,12.0
+269,8L3G-7222,Lilleby Triangel,13.0,22278,400.0,19.0
+270,8LDY-A222,"Munsterbekken Brl., blokk B",6.0,36654,230.0,15.0
+271,8LLV-5222,Bragernes Strand 10,8.0,15818,400.0,12.0
+272,8LLW-8622,Sameiet Støperiet Damsgårdssundet,10.0,552522,230.0,25.0
+273,8N4M-N722,Fløifjell Borettslag,8.0,739722,400.0,12.0
+274,8N5N-8222,Lille anlegg Kallerud 6-10,7.0,27150,230.0,18.0
+275,8NCQ-H422,FRI FLYT Uteparkering ved Saupstadringen 67A,8.0,326442,,
+276,8PSQ-9422,Kystparken Boligsameie,8.0,293730,400.0,12.0
+277,8RN5-H222,Reiertangen brl,10.0,61906,230.0,25.0
+278,8SW3-J322,Bjørnefaret brl,9.0,196851,230.0,23.0
+279,8UCU-N222,Olatunet BRL,6.0,85291,400.0,9.0
+280,8VMC-8322,Ellingsrud Boligsameie,9.0,157007,230.0,23.0
+281,8VMM-7222,Vestliåsen - Vestlisvingen 21-37 (Plass 67-123),8.0,22991,230.0,20.0
+282,8XNM-J522,Dalgårdstunet Sameie,5.0,461267,230.0,13.0
+283,8Y4X-F522,Sameiet Kirsebærskogen - P-kjeller HOC 15,7.0,450187,400.0,10.0
+284,8YYU-8322,Casper Lundes Veg 8,6.0,159099,,
+285,8ZRF-Q422,Mistel Park - Carport - Felt 2,10.0,354015,400.0,14.0
+286,92WZ-4222,Søndre Halset Borettslag AL - Midtre Hallsetvangen,9.0,12272,230.0,23.0
+287,934E-D222,Ulven Helsfyr garasjene plass 1-16,8.0,46600,230.0,20.0
+288,93PA-L522,Papirhuset,9.0,468052,400.0,13.0
+289,93YH-2722,Krydderhagen 1 etg Tavle 1,14.0,657400,,
+290,95RY-S322,Nordbyhagen Boligsameie,8.0,233308,400.0,12.0
+291,97AB-E522,Ski Næringspark,18.0,443552,400.0,26.0
+292,985M-7222,Hallingstadskogen - Syrinvegen - Oppgang 13C,6.0,22924,230.0,15.0
+293,98HT-9322,Høybråtenveien 3E-F - Slåttevangen Borettslag,10.0,163004,230.0,25.0
+294,98P9-8322,"Kolstadtunet 2,4",9.0,156628,230.0,23.0
+295,99CH-D422,Ternholmen Panorama,8.0,309160,400.0,12.0
+296,9AY2-N222,Torsveg 15,7.0,82041,,
+297,9H57-L622,Sameiet Franslykkja,6.0,598669,400.0,9.0
+298,9L7R-A722,St. Hansberget BRL - Solbergs gate 15,6.0,691094,230.0,15.0
+299,9M4Q-4422,Gystadmyra BRL,14.0,273162,400.0,20.0
+300,9M7E-U422,Fjellet Borettslaget - Fjellsvingen 2-4-6,11.0,370198,400.0,16.0
+301,9NZG-9222,Borettslaget Tuenesvegen 7 AL,5.0,30590,230.0,13.0
+302,9QER-5522,Gausta Residence,9.0,408498,400.0,13.0
+303,9QU3-J322,Bjørnefaret brl,9.0,196842,230.0,23.0
+304,9R8B-6222,"Sollia, Vallhallveien 9",6.0,17562,230.0,15.0
+305,9SNY-6222,Eierseksjonssameiet Kvitbekkgata 43 og 45,7.0,20307,400.0,10.0
+306,9TLJ-9222,Skårertoppen 1 BRL,7.0,30795,230.0,18.0
+307,9WZ9-4622,Smedstua brl,30.0,533503,400.0,43.0
+308,9X5Q-P622,Harmoni Uståsen,8.0,613135,400.0,12.0
+309,9Y7M-K522,Bergkrystallen,6.0,465303,230.0,15.0
+310,9ZKL-7222,AL Ammerudsletta,12.0,22855,400.0,17.0
+311,9ZUU-B222,Flatåseggen 9 - Garasje rekke,3.0,40299,230.0,8.0
+312,A2DX-9422,Klæbutorget,7.0,294572,400.0,10.0
+313,A34B-L422,Valentinlyst BT1-1,8.0,337032,,
+314,A46M-7222,Hallingstadskogen - Hyllveien - Oppgang 11B,7.0,22928,230.0,18.0
+315,A555-R622,Dronning Mauds gate 1-3 AS,31.0,618892,400.0,45.0
+316,A6NX-4322,Bakkely stort garasjeområde,4.0,143056,230.0,10.0
+317,A9FR-H622,Parkvegen Panorama,9.0,588724,400.0,13.0
+318,A9Q6-R222,Spikkestadbakken brl nedre,9.0,94808,230.0,23.0
+319,ADR7-E222,Dropsfabrikken Borettslag,5.0,49885,230.0,13.0
+320,AEXA-A422,Einerlien Borettslag - Lyngfaret 2-68,9.0,296053,230.0,23.0
+321,AFCT-A222,"Prestestien Brl, Myrdalskogen +H1-U4",9.0,36009,,
+322,AGNZ-2422,Bjørnli,10.0,266193,400.0,14.0
+323,AJA2-D222,Gildeheimsvegen 3 Øvre,10.0,45090,400.0,14.0
+324,AK36-M522,"Sundekrossen Brl, Mjugbakken 7",8.0,471558,400.0,12.0
+325,AK8G-8222,Grundtvigs gate 7,6.0,26394,230.0,15.0
+326,AL89-J322,Borettslaget Birkehaug Seniorboliger - Husnr 14,8.0,197530,400.0,12.0
+327,ALJ3-G222,Karihaugen,27.0,57538,230.0,68.0
+328,ALXD-V222,Meklenborg brl Hovsetervien 44,6.0,112118,230.0,15.0
+329,AN5X-F522,Nye Skansen 13A Borettslag,5.0,450190,400.0,7.0
+330,ANLH-2622,Fabeltunet - Parkeringskjeller BT1,28.0,526282,400.0,40.0
+331,APFJ-7222,Tinnheia Terrasse,10.0,22582,400.0,14.0
+332,AR8Q-V222,Skansen Terrasse 15,10.0,113434,230.0,25.0
+333,AR9E-C522,Tussestien Ladeanlegg,8.0,435742,400.0,12.0
+334,ARSB-A222,Kastellet brl,6.0,34018,230.0,15.0
+335,ARZK-2522,Stovnersletta Oppgang 24 (66 plasser),10.0,395518,230.0,25.0
+336,ASGF-9222,Flatåseggen p-hus,15.0,30395,230.0,38.0
+337,ATEQ-V622,Lungegaarden Borettslag,7.0,637747,230.0,18.0
+338,AVBY-B322,Følhusbakken Boligsameie,9.0,171815,400.0,13.0
+339,AWJE-2422,Kantorbekken Terrasse - Bygg A,8.0,263747,400.0,12.0
+340,AWQQ-H522,Plogfaret,7.0,457563,230.0,18.0
+341,AX8H-C322,Nordre Sving BRL,8.0,173979,400.0,12.0
+342,AYND-V222,Meklenborg brl Hovseterveien 56,7.0,112083,230.0,18.0
+343,AZSP-P222,Hannestad terrasse,9.0,88803,230.0,23.0
+344,B28T-J222,Øvre Bårlibakken brl,6.0,68760,230.0,15.0
+345,B2PY-D222,Skovbakken Brl - Hallagerbakken 10,9.0,48980,230.0,23.0
+346,B5WQ-K222,Eierseksjonssameiet Luftå 27,7.0,72560,400.0,10.0
+347,B65N-W522,FRI FLYT Uteparkering ved Midteggen 10,9.0,510476,,
+348,B7Q2-9722,Grande Panorama,11.0,684120,400.0,16.0
+349,B83M-G422,"Eierseksjonssameiet Skulehagen Blokk Iv, V og Vi",7.0,321924,400.0,10.0
+350,B8AS-B422,Morkvegen 34-36 P-kjeller,7.0,302112,230.0,18.0
+351,B958-T222,Skogmo Park,28.0,103180,400.0,40.0
+352,B96H-B222,Hestehagen BRL,13.0,38800,230.0,33.0
+353,B99M-8622,Vestlien Terrasse - Blokk 2,10.0,551324,230.0,25.0
+354,B99Z-X322,Glommengata 3,9.0,253852,400.0,13.0
+355,B9F7-V222,Sameiet Trellevika Vest,8.0,111284,400.0,12.0
+356,B9K3-P322,Sameige Førde Terrasse,8.0,217284,400.0,12.0
+357,BFHY-N322,Hekkveien 10 - Revidert,6.0,216893,400.0,9.0
+358,BFMM-N422,Kantorbekken - Bygg D,11.0,346573,,
+359,BFVH-E622,Vestliskogen,9.0,575469,230.0,23.0
+360,BGBM-D622,Vinklgården,10.0,571813,400.0,14.0
+361,BLJW-6422,Solehøyden bygg 24,10.0,282178,400.0,14.0
+362,BMBX-G222,Torvmoen Velforening,15.0,61094,400.0,22.0
+363,BN6M-K522,Bergkrystallen,5.0,465298,230.0,13.0
+364,BQEY-A222,"Munsterbekken Brl., blokk E",7.0,36658,230.0,18.0
+365,BRDG-U622,Garasjer ved Casper Lundes veg 2-8,2.0,632622,230.0,5.0
+366,BU2P-8222,Storbakken Terrasse 29A,6.0,27267,230.0,15.0
+367,BU9W-Q222,Borettslaget Furmur I AL,6.0,93727,230.0,15.0
+368,BXZ9-8222,Ola Frosts veg 1 IT Anlegg,3.0,25599,,
+369,BYKD-4722,Bjørnefaret,3.0,665031,,
+370,BZ5P-E222,Langerinden Borettslag - B 160-162,10.0,51855,230.0,25.0
+371,C34U-A222,"Prestestien Brl, Prestestien +H2-U1",7.0,36104,400.0,10.0
+372,C443-5322,Sameiet Smedasundet Amfi,7.0,143496,400.0,10.0
+373,C5L2-J422,FRI FLYT Uteparkering ved Midteggen 4,8.0,327752,,
+374,C67U-7222,Sameiet Triangel Park,13.0,23828,400.0,19.0
+375,C6BS-W522,Hagebyen 3 Borettslag,8.0,511012,230.0,20.0
+376,C6TP-P222,Hannestad terrasse,12.0,88804,230.0,30.0
+377,C6Z6-6222,Sameiet Værlevangen Terrasse,6.0,17020,230.0,15.0
+378,C75N-8222,Store anlegg Kallerud 6-10,4.0,27148,230.0,10.0
+379,C7FP-N522,Gjemblekorsen Borettslag,6.0,477876,400.0,9.0
+380,C9VR-M522,Lyshovden Borettslag - Område 2,11.0,474092,,
+381,CAGY-D622,Son Easypark,6.0,573241,,
+382,CAUK-P622,Storflata 1-5,13.0,612585,230.0,33.0
+383,CC72-5722,Bjørgene 2 Borettslag,7.0,667669,230.0,18.0
+384,CCMM-7222,Vestliåsen - Vestlisvingen 39-49 (Plass 1-72),8.0,22989,230.0,20.0
+385,CD6S-5222,Movollen 81,8.0,15377,400.0,12.0
+386,CE5E-U422,Fjellet Borettslaget - Fjellsvingen 1-3-5-8-10-12,8.0,370189,400.0,12.0
+387,CFF9-4722,Overvik Park,11.0,664501,400.0,16.0
+388,CFSW-8222,Linderudveien boligsameie,11.0,28257,230.0,28.0
+389,CH4X-F522,Borettslaget Nordre Hallsetveg 85 89,6.0,450185,230.0,15.0
+390,CHUL-U522,Gjellum Sameie - Rekkegarasjer,10.0,502121,230.0,25.0
+391,CNBR-N522,FRI FLYT Bestum Sameie,6.0,478118,230.0,15.0
+392,CND6-L222,Tverrbakken brl,8.0,74286,230.0,20.0
+393,CNHQ-A222,Kolstadflata 13 og 21,11.0,35646,230.0,28.0
+394,CQ7A-R222,Sameiet Bjørnson Terrasse,7.0,95254,400.0,10.0
+395,CQM7-R222,Sameiet Nordmyrveien 12,5.0,94926,400.0,7.0
+396,CRB6-6222,Valdresgata brl,10.0,16934,230.0,25.0
+397,CRWA-A422,Einerlien Borettslag - Einerkollen 2-24,7.0,296050,230.0,18.0
+398,CS6M-M622,Engasveien 61,8.0,604563,400.0,12.0
+399,CSFJ-H822,Coop Extra Jåsund,7.0,849975,400.0,10.0
+400,CSR2-7222,Stokkbekken Nord (Sameiet Miljøbyen Granåsen B2),8.0,20575,400.0,12.0
+401,CULR-6222,Ilsvika garden,8.0,19403,400.0,12.0
+402,CVQA-K222,Løvåsen Borettslag - Parkeringsområde ved blokk nr. 40 og 70,14.0,70747,230.0,35.0
+403,CWNX-F522,Brænderiet Boligsameie,4.0,450259,230.0,10.0
+404,CXXJ-V422,Øvre Grorud - Parkering mellom Gangstuveien 4 og 6,7.0,374903,230.0,18.0
+405,CY2Z-6222,Kronstadtorget Garasjesameie,11.0,20355,400.0,16.0
+406,CYB7-V522,Martin Skatvedts vei 7,7.0,504487,230.0,18.0
+407,CYLS-A322,Ladderudløkka,10.0,166987,400.0,14.0
+408,CYNL-C522,Ullernåsen - Bygg 8,6.0,436563,230.0,15.0
+409,CZFA-M522,Øvre Morvik SA - Tun 3,8.0,472119,230.0,20.0
+410,D28J-E222,saupstadringen 43,6.0,51224,230.0,15.0
+411,D36X-F522,Grim Saxeviks veg 1,7.0,450192,230.0,18.0
+412,D54B-J422,Tangen Torg Sameie - Parkering langs betongveggen,8.0,328840,400.0,12.0
+413,D5JZ-6222,Sole Alle 43,6.0,20416,400.0,9.0
+414,D6GL-2622,Verket Brygge,20.0,526648,400.0,29.0
+415,D7DM-6222,Ringve park IV 1,9.0,18860,400.0,13.0
+416,D88B-6222,"Sollia, Vallhallveien 5",7.0,17560,230.0,18.0
+417,D8B9-Z622,Storaneset Borettslag Tun 2,9.0,652196,230.0,23.0
+418,D8J6-6222,Tangen grendelag v Hegrevegen,4.0,16960,230.0,10.0
+419,D8XV-B622,Grindene 4,5.0,564724,230.0,13.0
+420,D946-E222,Langerinden Borettslag- B 256-258,9.0,49672,230.0,23.0
+421,D9Q3-T322,Barkaleitet Borettslag - Blokk E,8.0,233688,230.0,20.0
+422,DAJF-C722,Saksvik Øvre,11.0,698049,400.0,16.0
+423,DAUJ-B222,Landåstorget Serviceboliger Borettslag,5.0,39017,230.0,13.0
+424,DCD5-A322,Overvik 2,13.0,164269,,
+425,DCT7-K222,Sameiet Dockside 2 - Revidert,11.0,70373,400.0,16.0
+426,DDL3-9222,Vallefjell 1,7.0,28873,230.0,18.0
+427,DESR-J222,Borettslaget Kapteinen,6.0,68577,400.0,9.0
+428,DLQE-L222,Øvre Bårlibakken brl,5.0,75354,230.0,13.0
+429,DNNK-N622,Sameiet Hov gård BT1 (Sør/Øst),11.0,608466,400.0,16.0
+430,DPLE-Z622,St. Hansberget - Solbergs gate 18,9.0,652874,230.0,23.0
+431,DPPV-B322,Vestlitoppen,5.0,171478,230.0,13.0
+432,DQUA-B222,RUSTABAKKEN 3 BORETTSLAG,8.0,37994,400.0,12.0
+433,DRJ6-M522,"Sundekrossen Brl, Sundelia 8 og 10",7.0,471618,400.0,10.0
+434,DRRG-8222,Sameie Lyderhorn II,8.0,26462,400.0,12.0
+435,DUDP-5222,"Ladalen, Stjørdalsveien 15",15.0,15023,400.0,22.0
+436,DVC5-A522,Fagerlia Hageby BRL v/ Ramshart vei 1-8 & Fagerlivegen 25-29 ute,8.0,426411,400.0,12.0
+437,DW6Z-M422,Elveslettvegen 25-41 (oddetall),7.0,343955,400.0,10.0
+438,DZ7Y-B222,Olstadmoen HUS 1,9.0,40727,400.0,13.0
+439,DZ9U-9622,Damsgårdsveien 161-171 AS,11.0,556319,230.0,28.0
+440,DZCR-R222,Øvre Bårlibakken  Rekkegarasjer og ute Vittenbergveien 40-52,5.0,97195,230.0,13.0
+441,DZWA-C222,Smiberget område C1b,8.0,42099,230.0,20.0
+442,E235-7322,Hannestad Hageby brl,9.0,151940,230.0,23.0
+443,E48Z-N522,Jølsenveien - Ragnhild Jølsens veg 37E,6.0,479128,230.0,15.0
+444,E4XV-6222,Leistadvegen 2,7.0,19956,400.0,10.0
+445,E54W-R722,Tingvegen Sone 1.5 & 1.6,11.0,753160,230.0,28.0
+446,E5SR-G322,Lensmannsgården Borettslag,7.0,191456,400.0,10.0
+447,E8AA-B222,Gamle Drammensvei 48 ANS,10.0,37920,400.0,14.0
+448,E9A7-8222,Sameiet Tingsakerbakken,6.0,25248,400.0,9.0
+449,E9MC-A422,Neslia - Nesåsveien 2,7.0,296268,400.0,10.0
+450,E9MR-D622,Malerhaugveien 25,18.0,572364,400.0,26.0
+451,EAUJ-Q522,Ullernåsen - Bygg 2,9.0,485481,230.0,23.0
+452,EBAY-P722,Øvre Nyhavna BT5,13.0,745249,400.0,19.0
+453,ECYX-8222,Manesjen 1,7.0,28409,230.0,18.0
+454,EDK4-6422,Fevikpynten,10.0,278853,400.0,14.0
+455,EFMC-U422,Spikkestadbakken BRL - Brøholtskogen 12-18,5.0,369997,230.0,13.0
+456,EGDW-Q222,Kvartetten Vikhov Borettslag,10.0,93741,400.0,14.0
+457,EGNA-E222,Sameiet Yippi Høiseth B6-B7,8.0,50257,400.0,12.0
+458,EGV4-R522,Elveslettvegen 76 - 106 (partall),9.0,487789,400.0,13.0
+459,EH2D-A222,Grevlingveien P-kjeller + Under tak,9.0,34177,230.0,23.0
+460,EM2H-9222,Borettslaget Spjelkavik 1 AL - Øst,7.0,30594,230.0,18.0
+461,EMRB-G222,Eplehaven 2,6.0,58590,400.0,9.0
+462,EPE7-G222,Nedre ila 5,8.0,58034,400.0,12.0
+463,EQP4-F222,St.Hanshaugen Vestre Borettslag,8.0,53590,230.0,20.0
+464,ER2T-A222,"Prestestien Brl, Myrdalskogen +H1-U2",8.0,35970,,
+465,EURM-4322,Strandvegen 7 Borettslag,6.0,141791,400.0,9.0
+466,EVBT-A222,"Prestestien Brl, Myrdalskogen +H1-U1",14.0,36007,400.0,20.0
+467,EXZP-Q322,Enebakkveien 304 AS,14.0,223999,230.0,35.0
+468,F2GN-N222,"P130-1581 Hesjaholten Borettslag, #3",8.0,84536,,
+469,F36V-D222,Ørebekkstranda,10.0,48528,400.0,14.0
+470,F3GD-8222,Hammermo Terrasse,8.0,26040,400.0,12.0
+471,F3U7-F222,Skaugen Atrium C,7.0,53992,230.0,18.0
+472,F66M-5222,Perspektiv Steinan Ladeanlegg A,8.0,14736,400.0,12.0
+473,F7EY-4222,Solhøitunet 3,5.0,12080,400.0,7.0
+474,F8LK-6222,Bergheim Panorama Husnr 6,8.0,18632,400.0,12.0
+475,F97B-C222,Botnen Borettslag,26.0,42132,400.0,38.0
+476,F9KH-U422,Alfred Trønsdals veg 4 og Othilienborgtunet 1,6.0,370628,230.0,15.0
+477,F9M8-U522,Sørgard Terrasse Borettslag,9.0,500556,230.0,23.0
+478,F9QH-6222,Perspektiv Steinan Ladeanlegg C,8.0,18392,400.0,12.0
+479,FAF9-G622,Ravnkollen BRL - Ravnkollbakken 66,20.0,582581,230.0,50.0
+480,FAZP-U322,Lyngfaret Borettslag (Blokk 70),8.0,240381,230.0,20.0
+481,FB5G-8222,Stovnerskogen Borettslag - Parkeringskjeller,18.0,26381,230.0,45.0
+482,FDCY-D622,Wergeland Borettslag - Nedre område (garasje),6.0,573225,230.0,15.0
+483,FEKD-B222,Linderudveien Boligsameie garasje,5.0,38341,230.0,13.0
+484,FG7C-7222,Rugdevegen,11.0,21781,400.0,16.0
+485,FH5X-7322,Morten Morud Myhre,7.0,155277,,
+486,FHGN-P422,Sameiet Fjellbergveien 9/11,6.0,350777,400.0,9.0
+487,FJMP-G322,Sameiet Reme Gården,11.0,191182,400.0,16.0
+488,FKDF-J522,Garasjer ved Saupstadringen 2A,3.0,460462,,
+489,FKHV-C622,Fagertunvegen Byåsen,7.0,568766,400.0,10.0
+490,FL27-6222,Øvre granåslia 11,13.0,17026,400.0,19.0
+491,FN92-6622,Sølfastøya Elvepark BRL,9.0,540702,400.0,13.0
+492,FQCS-P422,Sameiet Hageby Allè,10.0,351274,400.0,14.0
+493,FQFJ-J422,"Ravnkollen BRL - Ravnkollbakken 54, 1.-2. etg",17.0,329782,230.0,43.0
+494,FS6W-L322,Klingremoveien Borettslag,5.0,208403,230.0,13.0
+495,FTFM-N522,Lindås BRL - Syrinveien,10.0,477623,230.0,25.0
+496,FWVX-4422,Kantorbekken Terrasse - Bygg B,9.0,274159,400.0,13.0
+497,FZ42-9222,Vallefjell 2 brl,7.0,28683,230.0,18.0
+498,FZ5S-8222,Rødstilkveien,10.0,27663,400.0,14.0
+499,FZQG-E222,Frysjaveien 1- 3- 5,8.0,51035,230.0,20.0
+500,FZYH-R222,Kjernåsveien brl,6.0,96251,230.0,15.0
+501,G5H5-A522,Fagerlia Hageby BRL v/ Aaengvegen 4-11,8.0,426428,400.0,12.0
+502,G5X2-6722,Åstveitvågen Park - Punkthus,10.0,671860,,
+503,G7B7-U722,Melhustorget BT 1.2,8.0,762532,400.0,12.0
+504,G7RG-6322,Fjøsmestervegen,7.0,149340,,
+505,G8P4-B622,Væretrøa Park - Parkeringskjeller,23.0,561492,400.0,33.0
+506,G8WW-Q222,Sameiet Nedre Bakklandet 56,6.0,93808,400.0,9.0
+507,G9NY-B822,Søndre Fjellstad Rekke garasjer ved E.M,7.0,827216,230.0,18.0
+508,G9VC-N222,Njordsveg 28,5.0,83308,,
+509,GAC7-V522,Martin Skatvedts vei 12-20 - Rundingen,6.0,504489,230.0,15.0
+510,GB37-F622,Othilienborgvegen 53,7.0,578181,230.0,18.0
+511,GBV4-H722,Harald Hårfagres 10,5.0,717165,230.0,13.0
+512,GC6S-8222,Korsnebbvegen,12.0,27665,400.0,17.0
+513,GCZF-G222,Sameiet Smedkroken,9.0,59133,400.0,13.0
+514,GDHX-7222,Kyrresborg Borettslag,7.0,24253,400.0,10.0
+515,GJDY-4222,Solhøitunet 1 Solhøitunet - Carport stor P-plass,11.0,12078,400.0,16.0
+516,GJKE-S722,"Midtenga Borettslag, UF2",3.0,755270,,
+517,GKBX-A722,"Ravnkollen BRL - Ravnkollbakken 38, 3.-4. etg",11.0,691878,,
+518,GKMX-H222,Langerinden Borettslag - B 78-80,7.0,65230,230.0,18.0
+519,GKZX-8222,Manesjen 7,6.0,28414,400.0,9.0
+520,GLWY-4422,Barkaleitet Borettslag - Uteparkering,8.0,274290,230.0,20.0
+521,GMR3-9222,Furutoppen boligsameie,5.0,28894,230.0,13.0
+522,GPA9-D322,Saupstadringen 29,5.0,177058,230.0,13.0
+523,GPU4-R522,Uteparkering ved Langhaugen 6 - 8,8.0,487786,,
+524,GR3U-A222,"Prestestien Brl, Prestestien +H2-U2",6.0,36102,,
+525,GRYH-9222,Sameiet Sorgenfriparken,5.0,30714,230.0,13.0
+526,GSD6-H622,Kirkegata 7,8.0,586287,400.0,12.0
+527,GT3X-F522,Sameiet Charlottenlund Vest B2,4.0,450183,230.0,10.0
+528,GV53-E222,Ulsholt brl p-kjeller 3 innerst,7.0,49295,230.0,18.0
+529,GWB7-8222,Kollen brl,8.0,25255,230.0,20.0
+530,GWVH-6622,Gransletta brl,10.0,542703,,
+531,GY23-8222,Devlebukta Borettslag,7.0,24707,230.0,18.0
+532,GYHW-P622,Fri Flyt Hemmingstad Borettslag Sone 2,6.0,613951,230.0,15.0
+533,GYKE-S422,Øvre Grorud - P-plasser / Garasjer i Nordtvetveien mot skolen,9.0,362055,230.0,23.0
+534,GYM9-A222,Sameiet Gannparken,7.0,33743,230.0,18.0
+535,GZL3-G222,Karihaugen brl,15.0,57547,230.0,38.0
+536,H4RK-N622,Sameiet Hov Gård BT2 (Nord/Vest),10.0,608476,400.0,14.0
+537,H5DL-Y622,Fabeltunet - Carporter,7.0,649516,400.0,10.0
+538,H5NA-H422,Marikollen Torg,11.0,324688,400.0,16.0
+539,H5PM-D322,Bjørnekollen,7.0,178644,230.0,18.0
+540,H5WE-3722,Øvre Steinaunet BB2,11.0,661104,400.0,16.0
+541,H6F5-7222,Fagstadhaven,8.0,20916,400.0,12.0
+542,H7P2-A222,Blusuvold brl,12.0,32852,230.0,30.0
+543,H7Z5-F222,Olav Engelbrektsons alle 41-47,7.0,53756,230.0,18.0
+544,H85W-A222,Løken - Uteplassen,30.0,36364,400.0,43.0
+545,H8E9-D222,Paradisbuen - Selvaag Utleiebolig,6.0,46000,230.0,15.0
+546,H8M5-W522,Sameiet Skadberg alle 35-51,6.0,508364,,
+547,HA8M-8222,Bondelia ll,6.0,27033,400.0,9.0
+548,HBYJ-D222,Sameiet Dalgårdveien 1,7.0,47225,400.0,10.0
+549,HEQC-J222,Brf Drevvikens Strand,5.0,66905,,
+550,HEYU-M522,Ognabredden Borettslag,6.0,474489,400.0,9.0
+551,HF8V-G222,"AL Haugum Borettslag, blokk 22",5.0,60825,230.0,13.0
+552,HFB5-A522,Fagerlia Hageby BRL v/ Fagerlivegen 36,9.0,426405,400.0,13.0
+553,HFCB-U222,Sørlia Borettslag,6.0,107689,230.0,15.0
+554,HG74-E222,Olav Englebrekstons alle 51,8.0,49429,230.0,20.0
+555,HGE4-P322,Bråtejordet - Del 1 og 2,31.0,217393,400.0,45.0
+556,HGJN-8222,Snekkerstua Øvre garasjerekke Anlegg 3,6.0,27201,230.0,15.0
+557,HHE6-6222,Hannestadtunet,9.0,16945,400.0,13.0
+558,HHZ4-C222,Sameiet Skråvika BB4,8.0,41341,400.0,12.0
+559,HJ6K-7222,Norfinn bo og ro,7.0,22674,400.0,10.0
+560,HJDY-D622,Wergeland Borettslag - Nedre område (garasjetak),7.0,573230,230.0,18.0
+561,HKP3-T322,Barkaleitet Borettslag - Blokk C,7.0,233686,230.0,18.0
+562,HMNB-E622,Sameiet Fosslia Hageby,9.0,574674,400.0,13.0
+563,HMXB-P722,Parkeringshuset Sameie,19.0,742646,400.0,27.0
+564,HN8E-U422,Fjellet Borettslaget - Myra parkeringsplass,12.0,370202,400.0,17.0
+565,HP46-9722,Blomkvartalet,9.0,684554,400.0,13.0
+566,HQQQ-4222,Perspektiv Steinan Ladeanlegg D,7.0,11098,400.0,10.0
+567,HQUP-G522,Soltun,6.0,453354,230.0,15.0
+568,HQY7-6222,Svarttjern,23.0,17146,230.0,58.0
+569,HRMJ-5222,Hospitalløkkan 20,6.0,14414,400.0,9.0
+570,HTHU-8222,Othilies hage,5.0,27967,230.0,13.0
+571,HTPF-B422,Prestegardsskogen Huseierforening,10.0,300759,230.0,25.0
+572,HUWF-A222,Borettslaget Spjelkavik 1 AL - Vest,7.0,34547,230.0,18.0
+573,HXXJ-Q522,Ullernåsen - Bygg 3,12.0,485495,230.0,30.0
+574,HYDX-G222,Saupstadringen 33 Garasjer,5.0,61103,230.0,13.0
+575,HYLT-J222,Borettslaget Moafjæra 6,9.0,68811,400.0,13.0
+576,HZ8C-T522,Soljordet,7.0,496923,230.0,18.0
+577,J29C-A422,Eplehaven 1,8.0,296220,400.0,12.0
+578,J2E3-3322,Bakkalandet Xo,8.0,135344,400.0,12.0
+579,J3QC-T222,"Midtenga Borettslag, HF1",6.0,103768,230.0,15.0
+580,J3U8-D722,Ortuflaten Garasjelag - Område 2,4.0,701288,230.0,10.0
+581,J4ZV-2322,Sundekrossen Brl Duganeveien,7.0,134652,400.0,10.0
+582,J66K-J722,Kroken Hage BT5,10.0,723088,400.0,14.0
+583,J6QQ-W622,Øyjorden Borettslag,6.0,641880,230.0,15.0
+584,J7QQ-X322,Ladebekken Borettslag,7.0,252760,230.0,18.0
+585,J8A4-A522,Storetungrova Sameige - Øvre område,6.0,426272,400.0,9.0
+586,J9B7-V522,Nedre Kalbakkvei - Utkjørsel,6.0,504484,230.0,15.0
+587,JAHQ-V422,Skoleparken Borettslag,6.0,375613,230.0,15.0
+588,JBFD-R422,Straume Teknologisenter - Område 1,38.0,357813,400.0,55.0
+589,JD47-P222,Sameiet Eikåsveien 2,8.0,86665,230.0,20.0
+590,JEFV-B522,Rydland Borettslag,7.0,433589,400.0,10.0
+591,JF8W-U222,"Lyderhorn Brl, garasjer Lien 37-72",7.0,110105,,
+592,JJ66-E222,Refsnes terrasse syd,9.0,49682,230.0,23.0
+593,JKFS-4422,Prærien Borettslag,6.0,273462,230.0,15.0
+594,JLKU-6622,Kongsløkken - P. kjeller,12.0,544070,400.0,17.0
+595,JMMM-7222,Vestliåsen - Vestlisvingen 21-37 (Plass 1-66),9.0,22990,230.0,23.0
+596,JQQL-M522,Østly Borettslag,6.0,473434,400.0,9.0
+597,JRVZ-4422,Voll Studentby 2,4.0,274414,,
+598,JS54-B222,Bekkestua Vest - Bærumsveien 216,6.0,37135,400.0,9.0
+599,JSP5-L722,Varden Borettslag - Garasje 32-61,10.0,729559,,
+600,JSQH-J422,Sameiet Hans Nielsens Hauges vei 57/59,6.0,329691,230.0,15.0
+601,JT4R-9222,Skogmusvegen,11.0,31627,400.0,16.0
+602,JUDY-A222,"Munsterbekken Brl., blokk C",7.0,36655,230.0,18.0
+603,JUT4-R522,Elveslettvegen 52 - 74 (partall),10.0,487783,400.0,14.0
+604,JWSJ-Q522,Ullernåsen - Bygg 1,13.0,485475,230.0,33.0
+605,JX5S-W222,Saga park,12.0,117775,400.0,17.0
+606,JX7X-2622,Flaktveitlien Borettslag,11.0,528023,230.0,28.0
+607,JXZ6-6222,"Ildjernåsen, Richard Baches vei 8",8.0,17023,400.0,12.0
+608,JYRQ-H522,Bjerkealleen BT1,7.0,457567,400.0,10.0
+609,JYTP-F522,Sarabråtveien Brl,7.0,449255,230.0,18.0
+610,K28E-8522,Lid Borettslag v. liakroken 24,7.0,419352,230.0,18.0
+611,K2Y2-N222,"Torsveg 13 garasjer, Nardo",5.0,82040,,
+612,K5RD-D522,Frost Eiendom - Hornebergvegen 6,11.0,439772,230.0,28.0
+613,K8WA-C222,Smiberget område C1a,9.0,42096,,
+614,KAGN-P622,Bjørndalsskogen Borettslag Blokk 6,8.0,612921,,
+615,KBH7-V522,Hamang Næringssenter AS - Ladeanlegg,6.0,504509,230.0,15.0
+616,KBYH-2722,Krydderhagen 1 etg Tavle 2,15.0,657401,,
+617,KCYJ-D522,Apalløkka,6.0,440441,230.0,15.0
+618,KEBL-B722,Lyshovden Sone 6,8.0,694565,230.0,20.0
+619,KES6-6722,Spinderitunet - Parkeringshus,14.0,672353,400.0,20.0
+620,KESB-C222,Åsenhagen rekkegarasjene ved fyrhuset,8.0,42209,230.0,20.0
+621,KF2F-4622,HHFJ El-bil Ladere,10.0,534145,400.0,14.0
+622,KF7C-R322,Rosenborg Park B5/B6 - plan 1,6.0,226581,400.0,9.0
+623,KGHT-9322,Høybråtenveien 3G - Slåttevangen Borettslag,11.0,163005,230.0,28.0
+624,KGJ6-M522,"Sundekrossen Brl, Sundelia 18 og 20",6.0,471617,400.0,9.0
+625,KGU7-8222,Sjetne Park - Lykkmarka 76,7.0,25321,400.0,10.0
+626,KHMG-2722,Storaneset Borettslag Tun 4,11.0,657229,,
+627,KHZT-3422,Hjørnesteinen Sameie,11.0,269565,400.0,16.0
+628,KJB2-V422,Fuglevegen brl - Gråspurvvegen 1,5.0,372774,230.0,13.0
+629,KKBX-T322,Valset Brl,8.0,237222,230.0,20.0
+630,KL8G-T222,Havstadodden,6.0,104218,400.0,9.0
+631,KLL3-9222,Vallefjell 1,11.0,28874,230.0,28.0
+632,KMZ9-A222,GEV 73 Uteanlegg,5.0,33790,230.0,13.0
+633,KNVD-Y322,Teglværket Sandnes,9.0,255470,400.0,13.0
+634,KPK6-3322,Borettslaget Heimdalsvegen 14,4.0,135750,230.0,10.0
+635,KQ2L-N422,Realsameiet Rømmetunet Blokk C,10.0,346370,400.0,14.0
+636,KSFN-U222,Rømme Amfi,9.0,109111,400.0,13.0
+637,KSGH-J222,Langerinden Borettslag - B 74-76,6.0,67515,230.0,15.0
+638,KT54-3322,Sjøkanten Rørvik,9.0,135439,400.0,13.0
+639,KY9W-C222,Zerom BRL,10.0,44575,400.0,14.0
+640,KYDW-5222,Rosenborg Park B3,8.0,15919,400.0,12.0
+641,L2CM-9222,"AL Stykkje Burettslag, vest",6.0,31144,230.0,15.0
+642,L2YU-B622,PSA52B AS - Drammen,11.0,564600,230.0,28.0
+643,L3WM-A222,Skullerudhøgda IV - GEV 121,5.0,35312,230.0,13.0
+644,L4FE-M322,Teglverkstunet BRL,12.0,210484,230.0,30.0
+645,L4TB-8222,Sameiet Zigzag,9.0,25828,400.0,13.0
+646,L6FH-X522,Grim Saxeviks veg 3,6.0,513972,230.0,15.0
+647,L72V-H522,Sameiet Eikeveien 3B,5.0,458112,,
+648,L73M-5222,Borettslaget Birkehaug Seniorboliger - Husnr 18,7.0,14724,400.0,10.0
+649,L8LQ-J222,Tine bugges veg 3,7.0,68424,400.0,10.0
+650,LA6Y-7222,Lonhaugen Borettslag,4.0,24337,230.0,10.0
+651,LA7Q-B522,Sørmarkfjellet,14.0,432917,400.0,20.0
+652,LA8G-8222,Skullerudhøgda II - GEV 59,6.0,26393,230.0,15.0
+653,LAW5-H222,Trondheim Parkering - Båhus garasje,8.0,61937,230.0,20.0
+654,LB78-7722,Kvartal 17,11.0,676629,,
+655,LCVK-P622,Langhaugen 8-18,8.0,612589,230.0,20.0
+656,LF93-W722,Øvre Steinaunet BK1,8.0,770205,400.0,12.0
+657,LFQA-4222,Høiseth hage,19.0,9305,400.0,27.0
+658,LFYV-6222,Lindås BRL - Hyllveien,9.0,19961,230.0,23.0
+659,LG8Q-V222,Skansen Terrasse 13,9.0,113433,230.0,23.0
+660,LH63-W322,Sjøbadet Moss Borettslag (ytterst mot port),10.0,245905,400.0,14.0
+661,LLR7-E222,Hornebergtunet rekkehusene Seksjon 1-3,11.0,49886,400.0,16.0
+662,LLTX-X422,K. O. Thornæs veg 2 og Alfred Trønsdals veg 3,6.0,384742,230.0,15.0
+663,LMW8-Z622,Realsameiet Rømmetunet Blokk A,8.0,652146,400.0,12.0
+664,LN74-D222,Lillian byes veg 8,6.0,45334,400.0,9.0
+665,LNHS-F322,Garasje ved Midteggen 6-8,9.0,187454,230.0,23.0
+666,LNUX-H322,Nordalstunet,6.0,196330,230.0,15.0
+667,LQXJ-8222,Nedre Langeland III Borettslag,9.0,26742,400.0,13.0
+668,LR3M-E222,Sandsliflaten Utleiebolig - Selvaag Utleiebolig,14.0,51590,400.0,20.0
+669,LTRH-N622,Ørnahaugen Borettslag,10.0,608223,230.0,25.0
+670,LW5Y-Z522,Solsletta BRL - Kjeller,7.0,524047,230.0,18.0
+671,LWT4-G222,Frusethenga Tun 4,5.0,57703,230.0,13.0
+672,LXEA-M522,Øvre Morvik SA - Tun 2,7.0,472115,230.0,18.0
+673,LXGQ-V722,Bjerkealleen BT4,11.0,768827,400.0,16.0
+674,LXKY-R522,Bestum sameie,4.0,491335,230.0,10.0
+675,LXML-4722,Skolebakken K,18.0,665935,400.0,26.0
+676,LXPQ-D322,Eilert Sundts plass,9.0,179031,230.0,23.0
+677,LYQQ-C222,Kystad Vestre - Ladeanlegg 2 (31-40),5.0,43867,230.0,13.0
+678,LZ2Q-7222,Linusbakken Borettslag,10.0,23299,400.0,14.0
+679,LZMK-Y222,Sole Alle 59-61,8.0,125135,400.0,12.0
+680,M2KL-D222,Sameiet Heimdal Stasjon,10.0,47428,400.0,14.0
+681,M35B-J422,Tangen Torg Sameie - Parkering langs innkjøringen,8.0,328844,400.0,12.0
+682,M52P-8222,Storbakken Terrasse 25B,7.0,27264,230.0,18.0
+683,M57X-F522,Bissmiet AS - Kirkeringen 2,13.0,450196,400.0,19.0
+684,M5DZ-U522,"Yippi B8, B9",12.0,503724,400.0,17.0
+685,M7AT-S622,Smedhagen Park 6 og 7,11.0,625824,400.0,16.0
+686,M7V3-J322,Bjørnefaret brl,12.0,196844,230.0,30.0
+687,M7VL-S322,Cicignon,6.0,231788,230.0,15.0
+688,M7XA-R222,Frostaveien 1,5.0,95348,230.0,13.0
+689,MD2A-G222,Øvre Våkleivåsen Borettslag,11.0,58369,230.0,28.0
+690,MD9L-Q222,Sjøbadet Moss brl,9.0,92445,400.0,13.0
+691,MEPC-5222,jakobsgrenda 20,8.0,13653,400.0,12.0
+692,MH97-E222,Skovbakken Brl  - Ravnåsveien 5,11.0,49821,230.0,28.0
+693,MHEY-A222,"Munsterbekken Brl., blokk D",7.0,36657,230.0,18.0
+694,MHXB-J222,Vikhammer Terrasse,5.0,66805,230.0,13.0
+695,MLBH-G222,Langerinden Borettslag - B 152-154,8.0,59302,230.0,20.0
+696,MLCG-4422,Rostengrenda Borettslag NORD,10.0,272170,230.0,25.0
+697,MNLG-2722,Storaneset Borettslag Tun 3,10.0,657226,230.0,25.0
+698,MP4M-7222,Hallingstadskogen - Syrinveien - Oppgang 11B,7.0,22922,230.0,18.0
+699,MPGT-9322,Høybråtenveien 3D - Slåttevangen Borettslag,8.0,163002,230.0,20.0
+700,MR6N-J322,Øvre Nyhavna BT2,12.0,199186,400.0,17.0
+701,MSAV-8722,Petter Fuglem,12.0,683427,400.0,17.0
+702,MSZL-K522,Bergkrystallen,7.0,465279,230.0,18.0
+703,MTAK-E322,Garasje ved Saupstadringen 59-61,11.0,182435,230.0,28.0
+704,MU75-R522,Sameiet Kirsebærskogen - Uteparkering HOC 15,8.0,487831,400.0,12.0
+705,MU9B-L322,FRI FLYT Uteparkering ved Saupstadringen 51,7.0,205983,,
+706,MV46-F222,Smiberget område B1,8.0,53771,,
+707,MVQT-G222,Saupstadringen 19,14.0,60635,230.0,35.0
+708,MWE3-P222,Vøyen Hageby 7,7.0,86195,400.0,10.0
+709,MWLE-V222,Meklenborg brl Hovseterveien 42,6.0,112203,230.0,15.0
+710,MXN7-X622,Klokkerjordet,7.0,643795,230.0,18.0
+711,MY9M-8622,Vestlien Terrasse - Blokk 3,10.0,551327,230.0,25.0
+712,N23X-F522,Munkaunet Vest Borettslag,10.0,450180,230.0,25.0
+713,N2GQ-5222,Tonstad nord,12.0,15160,230.0,30.0
+714,N3JW-B322,Vestlitoppen,7.0,171584,230.0,18.0
+715,N4W3-V622,Valentinlyst BT2 Gruppe F01.2,7.0,635120,,
+716,N6B4-4322,Vennersberg III,7.0,139556,230.0,18.0
+717,N76G-8222,Skullerudhøgda II - GEV 57,7.0,26384,230.0,18.0
+718,N7J5-A522,"Fagerlia Hageby BRL (Nr 6) v/ Fagerlivegen 15, 17 & 21",12.0,426432,400.0,17.0
+719,N8GY-M522,Sjøbu Borettslag,9.0,474936,400.0,13.0
+720,NAMX-H222,Sameiet Lagårdsveien 17-25,6.0,65229,230.0,15.0
+721,NBC6-M522,"Sundekrossen Brl, Mjugbakken 5",6.0,471593,400.0,9.0
+722,NBKP-V622,Fagerlia BRL - Ulvefaret,12.0,637637,230.0,30.0
+723,NCB3-9722,Fabeltunet - Parkeringskjeller BT2,18.0,684197,400.0,26.0
+724,NCR3-9222,Furutoppen Boligsameie,6.0,28893,230.0,15.0
+725,ND5M-V522,Sundekrossen Brl Duganekroken,7.0,506253,400.0,10.0
+726,ND5Z-2822,Sandbekken 2 HF Kurs 1,6.0,790413,,
+727,ND6Y-D622,Wergeland Borettslag - Øvre område (uteparkering),7.0,573201,230.0,18.0
+728,NE2Y-8222,Manesjen 8 B,4.0,28417,400.0,6.0
+729,NEU4-R522,Uteparkering ved Fogdenget 12,7.0,487785,,
+730,NEVU-Q522,Nordre Erleveien Boliglag AS,6.0,486765,230.0,15.0
+731,NF5V-D222,Ørebekkstranda,7.0,48525,400.0,10.0
+732,NF63-M222,Åsly Borettslag,14.0,77969,230.0,35.0
+733,NGFV-N222,Bygda 2.0 (Bygdeboksen),10.0,85429,230.0,25.0
+734,NH4H-A522,Wesselkvartalet U1 Tavle 1,9.0,427913,,
+735,NHVA-M222,Fjordhagen sør,12.0,78957,400.0,17.0
+736,NJKP-9322,Sameiet Wergelandskvartalet,3.0,162502,230.0,8.0
+737,NKC7-V522,Martin Skatvedts vei 5 - Skråbakken,8.0,504490,230.0,20.0
+738,NMD5-7222,Lia - omeråde øvre felt,7.0,20910,230.0,18.0
+739,NNPV-T222,"Lyderhorn Brl, garasjer Lien 1-36",7.0,105942,,
+740,NNYT-Y322,Libakken Borettslag,9.0,257274,230.0,23.0
+741,NPG5-Y222,Sameiet Horgvegen 2-10,11.0,123322,400.0,16.0
+742,NPPR-5222,Løken - Rekkegarasjene,8.0,15318,230.0,20.0
+743,NQDT-J222,Rolland Borettslag Blokk C-D,9.0,68782,230.0,23.0
+744,NRHQ-A522,Møllen Sameie - Indre område,8.0,428862,400.0,12.0
+745,NSAU-E822,Øvre Steinaunet BK2,10.0,838947,400.0,14.0
+746,NUCJ-J422,"Ravnkollen BRL - Ravnkollbakken 38, 1.-2. etg",12.0,329771,230.0,30.0
+747,NYAF-H222,Nærbyen,8.0,63139,400.0,12.0
+748,NZ2K-Q522,Ullernåsen - Bygg 6,6.0,485507,230.0,15.0
+749,NZPQ-6222,Damsgårdssundet Borettslag,6.0,19287,400.0,9.0
+750,NZWH-Y222,Saupstadringen 2,8.0,124915,230.0,20.0
+751,NZXY-K422,Valentinlyst BT1,6.0,335735,,
+752,P3LK-2522,Lilleby Triangel Sør,11.0,395464,400.0,16.0
+753,P6JD-V222,Meklenborg P-hus,5.0,112064,230.0,13.0
+754,P7HU-P422,Saga Terrasse,30.0,351548,,
+755,P7WP-P222,Bergheim Terrasse - NORD,10.0,88816,400.0,14.0
+756,P987-8222,"Vistespeilet Borettslag, bygg A",6.0,25240,400.0,9.0
+757,P9DX-G222,Trondheim Parkering - Øvre Møllenberg,8.0,61100,230.0,20.0
+758,PAP3-T322,Barkaleitet Borettslag - Blokk B,9.0,233685,230.0,23.0
+759,PB7B-6222,"Sollia, Vallhallveien 3",7.0,17557,230.0,18.0
+760,PBJD-5622,Smedparken,10.0,538049,400.0,14.0
+761,PBJE-8222,Linjekvartalet 2,12.0,26177,400.0,17.0
+762,PDSJ-9222,Vestre Tunhøgda,11.0,30817,230.0,28.0
+763,PELR-A522,Samfundsbakken BRL,5.0,429001,230.0,13.0
+764,PF4K-Y622,Storaneset Borettslag Tun 1,7.0,649353,230.0,18.0
+765,PGKM-A222,Skullerudhøgda IV - GEV 119,5.0,35269,230.0,13.0
+766,PH52-A222,Kolstadflaten 3,7.0,32781,230.0,18.0
+767,PH8L-7322,Solsletta Bk1,13.0,153881,400.0,19.0
+768,PKAD-R422,Sameie Hamremarken - Øvre område,7.0,357794,230.0,18.0
+769,PKHJ-U422,Sandbekken III,7.0,370750,230.0,18.0
+770,PN8V-G222,"AL Haugum Borettslag, blokk 18",5.0,60826,230.0,13.0
+771,PP8H-4322,Sameiet Q42,8.0,141210,400.0,12.0
+772,PPGB-W722,Heimstadeggen Boligsameie - Sør,8.0,771258,400.0,12.0
+773,PVUV-3622,Trudvangvegen 10 Borettslag,6.0,531947,230.0,15.0
+774,PWKP-R622,Sameiet Saksvik Park,8.0,621255,400.0,12.0
+775,PX4J-X422,Øvre Grorud - Parkering ved Nordlisletta 13,4.0,382987,230.0,10.0
+776,PXRJ-C722,Godlia BRL,7.0,698463,,
+777,PYB8-H622,Elvekvartalet Driftsforening (P-kjeller),10.0,586535,400.0,14.0
+778,PYE5-C422,Sameiet Solsiden Son,10.0,303539,400.0,14.0
+779,PYFN-P622,Bjørndalsskogen Borettslag Blokk 4,6.0,612919,,
+780,PYQP-J222,Sameiet Apeloen,10.0,68315,400.0,14.0
+781,PZ3E-D222,Ulven Helsfyr Garasjene 17-28,6.0,46599,230.0,15.0
+782,PZRT-X322,Øreåsen brl,9.0,253151,230.0,23.0
+783,PZXH-2722,Krydderhagen Kjeller 1 Tavle 2,11.0,657399,,
+784,Q4XR-5222,Hasselbakken Terrasse 5B - p-kjeller,8.0,15348,400.0,12.0
+785,Q5D6-6222,Skrepstad brl,6.0,16940,230.0,15.0
+786,Q5S4-C222,Heimdalsporten (p-plass nr. 56-70 og 110-165),11.0,41312,400.0,16.0
+787,Q6UX-X422,Othilenborgtunet 9-13 og 16-18,7.0,384744,230.0,18.0
+788,Q7P4-Z222,Parkeringshuset - Plan 1 - Epletunet Lier Hageby,19.0,127316,400.0,27.0
+789,Q86H-T322,Søndre Halset Borettslag AL - Vestre Hallsetvangen,13.0,235408,230.0,33.0
+790,Q8DE-E222,Fagstadlia 1 Område 1 Nord,8.0,50732,400.0,12.0
+791,Q9B7-F622,K. O. Thornæs veg 20,6.0,578212,230.0,15.0
+792,Q9GD-S222,Sameiet Rygge Atrium,17.0,99768,400.0,25.0
+793,Q9J8-Q222,Sameiet Tordenskiolds Hage Lade,13.0,90944,400.0,19.0
+794,QCD7-V522,Martin Skatvedts vei 20-22,5.0,504493,230.0,13.0
+795,QCGF-J222,Nybu Furubakken 15,6.0,67257,230.0,15.0
+796,QEHY-6222,Strømsbuveien 49 Sameie,6.0,20285,230.0,15.0
+797,QELV-A222,Sakshus herregård,7.0,36297,230.0,18.0
+798,QG2T-A222,Neslia - Nesåsveien 5,9.0,35969,400.0,13.0
+799,QHPK-7222,Sameiet utleir,7.0,22741,400.0,10.0
+800,QJEA-H422,Øvre Nyhavna BT3,8.0,324658,,
+801,QK3N-8222,"Prestestien Brl, Prestestien +H1-U3",11.0,27142,230.0,28.0
+802,QLJE-S722,"Midtenga Borettslag, UF1",6.0,755266,,
+803,QLJP-V622,Fagerlia BRL - Mårstien,12.0,637634,230.0,30.0
+804,QMBL-3422,Nygård Sentrum Borettslag,8.0,268582,230.0,20.0
+805,QMQE-J522,FRI FLYT Saupstadringen 29,6.0,460378,,
+806,QMYX-8222,Manesjen 2,4.0,28410,400.0,6.0
+807,QN9Z-4222,Strindheim idyll,8.0,12190,400.0,12.0
+808,QNKD-3322,Kortabakken BRL,7.0,136646,400.0,10.0
+809,QP2U-A222,"Prestestien Brl, Flatevad +H1-U5",8.0,36098,400.0,12.0
+810,QQ9U-G322,Arsenalvegen 1,7.0,191774,400.0,10.0
+811,QRCQ-C222,Kystad Vestre - Ladeanlegg 1 (1-30),6.0,43818,,
+812,QRFR-3422,Sollia Borettslag,5.0,269238,230.0,13.0
+813,QRUY-Q622,Borettslaget Vågavegen 21 AL,8.0,618346,230.0,20.0
+814,QRV4-R522,Elveslettvegen 140 - 162 (partall),5.0,487790,400.0,7.0
+815,QSR2-H422,Hellemyren Sameiet,12.0,323679,400.0,17.0
+816,QSTC-5222,Sorgenfrisletta II AL / Øystein Møylas veg 18,6.0,13671,230.0,15.0
+817,QUGK-J222,Brake Borettslag Blokk N,6.0,67771,230.0,15.0
+818,QUP7-F222,Namdalsbruket Borettslag,7.0,53975,400.0,10.0
+819,QV2X-F522,Elgkollen Borettslag,6.0,450179,230.0,15.0
+820,QVBS-3722,Lillesundvegen 17/19,6.0,662567,230.0,15.0
+821,QVZV-C522,Berkåk TE,10.0,437759,400.0,14.0
+822,QWEC-8222,Fyllingsdalen Borettslag nedre parkeringsområde,8.0,25907,230.0,20.0
+823,QWSE-Q422,Estvoldvegen Borettslag,6.0,353891,400.0,9.0
+824,R2FM-N522,Sydhellinga,6.0,477620,230.0,15.0
+825,R5W5-K622,Vestliskogen,10.0,594416,230.0,25.0
+826,R6FE-P322,Lars Meyers Gate,8.0,218676,,
+827,R73A-X522,Casper Lundes Veg 4,5.0,513028,,
+828,R8E5-7222,Lia - omeråde midt,7.0,20912,230.0,18.0
+829,R9WU-2422,Jettegryta P1-P3,8.0,265584,230.0,20.0
+830,RAUC-7222,"Brønndalen Brl, Blokk 2, 3, 4 og 6",16.0,21865,230.0,40.0
+831,RBKB-Q622,Vestparken 5,11.0,615621,400.0,16.0
+832,RD4P-9222,"Prestestien Brl, Flatevad +H2-U3",12.0,31369,400.0,17.0
+833,RDN8-3722,Nordåshøgda,5.0,660305,230.0,13.0
+834,RDWC-N222,Njordsveg 26,7.0,83313,,
+835,RFWL-B222,Levanger brygge,8.0,39281,400.0,12.0
+836,RGG6-7322,Tokerudtoppen - Tokerudberget 8-14,11.0,152121,230.0,28.0
+837,RHYG-A522,Militzowsgata Burettslag,8.0,427897,230.0,20.0
+838,RM4X-3422,Tristilsvingen 2 Boligsameie,12.0,269962,400.0,17.0
+839,RMN3-T322,Torvhusbakkane Burettslag,5.0,233682,400.0,7.0
+840,RNHD-A222,Kolstadflaten 5,9.0,34238,230.0,23.0
+841,RPLJ-5222,Bergheim Panorama Husnr 4,8.0,14410,400.0,12.0
+842,RQLL-D222,Sameiet Nebelung,9.0,47434,400.0,13.0
+843,RR7A-P522,Brundalen BRL Christian Bloms veg,12.0,480278,230.0,30.0
+844,RRR9-4222,P130-1642-Sameiet Solberget 1,11.0,9182,400.0,16.0
+845,RT9E-V222,Meklenborg brl Hovseterveien 34,6.0,112159,230.0,15.0
+846,RTX4-R522,Elveslettvegen 115 - 135 (oddetall),10.0,487799,400.0,14.0
+847,RULK-R422,Sandved Hageby,11.0,358603,400.0,16.0
+848,RUQC-5222,Perspektiv Steinan Ladeanlegg E,12.0,13659,400.0,17.0
+849,RUXK-9222,Borettslaget Idyll,7.0,30967,230.0,18.0
+850,RV5K-8222,Kurland I Borettslag,12.0,26767,230.0,30.0
+851,RV83-V422,Øvre Grorud - Parkering ved Kalbakkveien 11A og Nordtvetveien 9D,5.0,372891,230.0,13.0
+852,RYMR-4222,Kolstadflaten 29,12.0,11215,230.0,30.0
+853,RYW8-C322,Holkebylia 5 BRL,7.0,172915,230.0,18.0
+854,S46S-8222,Brushanevegen,10.0,27664,400.0,14.0
+855,S4TW-Z222,Mistelpark - Carport - Felt 1,11.0,130660,400.0,16.0
+856,S5HX-7222,Fyllingen Terrasse Borettslag,8.0,24252,230.0,20.0
+857,S5RL-L222,Haslum elvepark,18.0,76124,400.0,26.0
+858,S5X4-Z222,Sameiet Solenga,6.0,127348,400.0,9.0
+859,S6M8-L222,Njordsveg 30,6.0,74572,,
+860,S985-A522,Storetungrova Sameige - Nedre område,6.0,426392,400.0,9.0
+861,S988-X622,Klokkerjordet,7.0,643864,230.0,18.0
+862,SA8A-R222,Værlebukta brl,5.0,95257,230.0,13.0
+863,SANX-8322,FRI FLYT Casper Lundes Veg 4,6.0,159441,,
+864,SBC6-6222,Gate 1-2-3,9.0,16937,400.0,13.0
+865,SBJ3-Q422,Øvre Steinaunet BB1,11.0,352449,,
+866,SE9N-6222,Byåsveien 120,6.0,18973,230.0,15.0
+867,SEN3-4222,Parkering Øvre Granåslia 27,14.0,8401,400.0,20.0
+868,SEST-X322,Øreåsen brl,7.0,253153,230.0,18.0
+869,SGNR-8322,Kolstadtunet 8,8.0,158673,230.0,20.0
+870,SJ5W-R722,Fjøsmestervegen Sone 2.2,7.0,753166,230.0,18.0
+871,SK9Z-N522,Jølsenveien Tomtelag - Stor garasjerekke,11.0,479134,230.0,28.0
+872,SLHE-C222,Sameiet Garasjeanlegg Asheimtunet F-Bg3,7.0,42558,400.0,10.0
+873,SLXK-2522,Stovnersletta Oppgang 30 (200 plasser),18.0,395510,230.0,45.0
+874,SM52-T222,Øvre Nyhavna BT1,11.0,102414,400.0,16.0
+875,SM6B-B222,Smørblomstveien 22-24,8.0,38034,400.0,12.0
+876,SMQW-S322,Sameiet Dalkantvegen 13-23,7.0,233050,230.0,18.0
+877,SN6G-8222,Skullerudhøgda II - GEV 83,5.0,26386,230.0,13.0
+878,SNB7-8222,Tomset terrasse,8.0,25254,400.0,12.0
+879,SNJC-8322,Ellingsrud Boligsameie,8.0,156994,230.0,20.0
+880,SNVH-6622,Gransletta brl,11.0,542702,230.0,28.0
+881,SPQE-Y522,Holen Terrasse,8.0,517722,400.0,12.0
+882,SQM9-A222,Sameiet Eiganes Terrasse Sør,7.0,33742,230.0,18.0
+883,SR3Y-5322,Grilstad idyll p-kjeller,5.0,147206,230.0,13.0
+884,SSDY-4222,Solhøitunet 2,9.0,12079,400.0,13.0
+885,STZX-8222,Manesjen 9,8.0,28415,400.0,12.0
+886,SU3B-M422,Tomasjordnes 266,10.0,341127,400.0,14.0
+887,SU8S-P522,Frøya Vindkraftverk,10.0,482331,400.0,14.0
+888,SWLY-G222,Bæssfarjordet borettslag,7.0,61259,400.0,10.0
+889,SWNA-U622,Snølia 7,16.0,631891,400.0,23.0
+890,SX2E-V222,Meklenborg brl Hovseterveien 36,6.0,112131,230.0,15.0
+891,SXAY-A222,"Munsterbekken Brl., blokk A",8.0,36643,230.0,20.0
+892,SZ6K-8222,Løken - Parkeringshuset,11.0,26771,,
+893,SZA4-9222,Solliskogen brl,17.0,28963,400.0,25.0
+894,T3JM-B222,Arnebekktunet,4.0,39360,230.0,10.0
+895,T4VC-7222,"Brønndalen Brl, Blokk 9 og 10",11.0,21868,230.0,28.0
+896,T5MW-R422,Elveslettvegen 1-23 (oddetall),5.0,360012,400.0,7.0
+897,T66P-C222,Vardefjellet Garasje Trinn 2,15.0,43664,400.0,22.0
+898,T67Y-5222,Øvre Granåslia 1,18.0,16148,400.0,26.0
+899,T6FD-P622,Ørland panorama,6.0,611764,400.0,9.0
+900,T76T-J222,Øvre Bårlibakken,5.0,68752,230.0,13.0
+901,T7RN-2322,Sameiet Okstadøy 76-78-80,5.0,133724,230.0,13.0
+902,T8JN-8222,Snekkerstua Midtre garasjerekke anlegg 2,7.0,27200,230.0,18.0
+903,T8K6-W422,Sameiet Lensmannskroken 2,7.0,377412,,
+904,T9MV-2322,Skjettengrenda Borettslag  7 - 13,7.0,134604,400.0,10.0
+905,T9T3-8222,Nordåstoppen velforening,10.0,24804,230.0,25.0
+906,TAJJ-8222,Voldsminde Vi,5.0,26689,230.0,13.0
+907,TAXC-Y522,Glassmestergården,9.0,517493,400.0,13.0
+908,TDEH-5222,"Carport - Cappelens gate 11, Sollia Brl",12.0,14257,230.0,30.0
+909,TERJ-C722,Godlia BRL,6.0,698461,,
+910,TF36-A322,Overvik 1,15.0,164357,400.0,22.0
+911,TFM5-6222,Frøenstunet Boligsameie,7.0,16845,230.0,18.0
+912,TG5W-A222,Hagaløkka IV Sameie,9.0,36365,230.0,23.0
+913,TGE3-V622,Valentinlyst BT2 Gruppe F01.1,8.0,635057,,
+914,THFN-P622,Bjørndalsskogen Borettslag Blokk 1,8.0,612917,,
+915,TJJS-2422,Ospelia,8.0,265282,230.0,20.0
+916,TJW6-Z622,"Vestre Hetlevikåsen område 4, 5 og 6.",5.0,651890,230.0,13.0
+917,TKTW-S322,Klæbu Panorama,15.0,233062,400.0,22.0
+918,TKYX-M522,Mauritz Hansensvei,8.0,474874,400.0,12.0
+919,TMMB-T222,Orkangerporten,8.0,103630,400.0,12.0
+920,TMW4-R522,Fogdenget 1-12,7.0,487794,230.0,18.0
+921,TQ87-8222,"Vistespeilet Borettslag, bygg C",7.0,25242,400.0,10.0
+922,TQAS-4722,Godlia BRL,5.0,666658,,
+923,TQDX-G222,Uteparkering Saupstadringen 35,10.0,61102,230.0,25.0
+924,TQLS-7222,Hasselbakken Terrasse 5C - Øvre uteparkering,11.0,23626,400.0,16.0
+925,TRED-E222,Pardisvegen,4.0,50610,400.0,6.0
+926,TRF3-J222,Sameiet Bellevue,6.0,65718,230.0,15.0
+927,TRHX-A722,"Ravnkollen BRL - Ravnkollbakken 54, 3.-4. etg",9.0,691902,,
+928,TTHN-8222,Snekkerstua Nedre garasjerekke/p-kjeller Anlegg 1,8.0,27199,230.0,20.0
+929,TTP3-T322,Barkaleitet Borettslag - Blokk D,6.0,233687,230.0,15.0
+930,TUS4-U222,Trøbakken,7.0,106851,400.0,10.0
+931,TV3S-5222,Movollen 85,12.0,15367,400.0,17.0
+932,TVMP-6222,Rosenborg Park B5/B6 - plan 0,9.0,19151,400.0,13.0
+933,TWTD-A422,Nordroa BRL,8.0,296423,400.0,12.0
+934,TWUC-6222,Sameiet Byporten Arendal,5.0,17771,400.0,7.0
+935,TX6C-7222,Bekkasinvegen,13.0,21779,400.0,19.0
+936,TYY7-6222,Svarttjern,24.0,17147,230.0,60.0
+937,TZ3H-T222,Vollene Seniorsenter,4.0,104327,230.0,10.0
+938,TZHE-V222,Meklenborg brl Hovseterveien 38,7.0,112191,230.0,18.0
+939,U8BG-7522,Sentrumsgården Buvika,6.0,415524,400.0,9.0
+940,U8GR-S222,Fjøsmestervegen 5,4.0,101304,230.0,10.0
+941,U9XX-E222,Smiberget område B2,9.0,52980,,
+942,UC2X-F522,Sameiet Nedre Ila 3,6.0,450177,400.0,9.0
+943,UCFY-Q322,Øvre Kongsgård Borettslag II,7.0,225077,230.0,18.0
+944,UDGK-J222,Brake Borettslag Blokk S,4.0,67769,230.0,10.0
+945,UDU7-X422,Vervet,17.0,381673,400.0,25.0
+946,UFEC-8222,Fyllingsdalen Borettslag øvre parkeringsområde,7.0,25905,230.0,18.0
+947,UH7G-8222,Skullerudhøgda II - GEV 69,7.0,26389,230.0,18.0
+948,UHA7-8222,Auraparken borettslag,7.0,25249,400.0,10.0
+949,UJ92-N322,Ohmia Gjesteparkering,5.0,213022,,
+950,UJWD-U622,Åstveitvågen park - Terassehus,9.0,632306,400.0,13.0
+951,UKYJ-8222,Skogtun Borettslag,8.0,26746,230.0,20.0
+952,UNJ2-Z422,Øvre Grorud - Parkering ved Gangstuveien 12,6.0,389186,230.0,15.0
+953,UNK7-X622,Klokkerjordet,5.0,643782,230.0,13.0
+954,UNP4-Z222,Smiberget område A1,9.0,127318,230.0,23.0
+955,UP3K-Q522,Ullernåsen - Bygg 9,9.0,485510,230.0,23.0
+956,UQYJ-E622,Vestliskogen,8.0,575610,230.0,20.0
+957,URBH-9222,Innherredsveien 82,7.0,30630,400.0,10.0
+958,USGX-7222,Borettslaget Sigurdsgate 17-19,6.0,24251,230.0,15.0
+959,UTXQ-6222,Sameiet Elvehavn Brygge A og B,6.0,19319,400.0,9.0
+960,UVGF-J222,Nybu Furubakken 17,7.0,67259,230.0,18.0
+961,UVND-9322,Borettslaget Solheimslien 32,5.0,161235,230.0,13.0
+962,UW8F-N622,Sameiet Hjelleåsen terrasse T1,10.0,607899,400.0,14.0
+963,UYYT-B222,Kroken Hage Borettslag BT1 & BT2,10.0,40187,400.0,14.0
+964,V2Y2-P622,Rolv Wesenlunds vei 9 BRL,7.0,610424,400.0,10.0
+965,V3WH-6622,Gransletta brl,9.0,542704,230.0,23.0
+966,V46R-5222,Ekornvegen,9.0,15248,400.0,13.0
+967,V5J7-Z522,Sameiet Dronningåsen 1,9.0,520896,400.0,13.0
+968,V62Q-U322,Lyngfaret Borettslag (Blokk 72-74),10.0,240384,230.0,25.0
+969,V765-6222,Leirfossen Terrasse,10.0,16784,400.0,14.0
+970,V7Z7-6222,Svarttjern,19.0,17148,230.0,48.0
+971,V863-E222,Ulsholtveien brl rekkegarasjer,7.0,49296,230.0,18.0
+972,V87C-7222,Myrsnippvegen,13.0,21780,400.0,19.0
+973,V9FX-4422,Strandkanten,12.0,274100,400.0,17.0
+974,V9GW-G222,Langerinden Borettslag - B 86-88,6.0,60984,230.0,15.0
+975,V9H6-H222,Manesjen 5 ny,4.0,62012,400.0,6.0
+976,VCBZ-F722,Havna Parkeringshus Vanvikan,7.0,712613,400.0,10.0
+977,VDXJ-L222,Torsveg 11 Nardo garasjer,7.0,75893,,
+978,VEV8-E222,Elveparken Sætre Havn,8.0,50029,400.0,12.0
+979,VFLT-9322,Sundenga Boligsameie,13.0,163017,230.0,33.0
+980,VFMS-7222,Hasselbakken Terrasse - Nedre uteparkering,5.0,23629,400.0,7.0
+981,VFW5-8222,Sole Alle 2,6.0,25073,400.0,9.0
+982,VHBJ-2322,Kaldnes Brygge Beddingen,13.0,133157,400.0,19.0
+983,VHQH-6222,Perspektiv Steinan Ladeanlegg B,8.0,18393,400.0,12.0
+984,VJWC-8222,Vassfjelltunet,7.0,25970,230.0,18.0
+985,VKGS-M222,Sameiet Husmorgården,7.0,80954,400.0,10.0
+986,VL3M-7222,Vestlijordet Huseierlag,10.0,22918,230.0,25.0
+987,VLRG-A522,Wesselkvartalet U3 Tavle 1,8.0,427870,,
+988,VPBG-4422,Rostengrenda Borettslag SØR,9.0,272166,230.0,23.0
+989,VQLT-4422,Jettegryta P4-P5,8.0,273610,230.0,20.0
+990,VR42-9222,Vallefjell 2 brl,6.0,28682,230.0,15.0
+991,VR5J-X422,Øvre Grorud - Parkering ved Nordlisletta 9,6.0,382990,230.0,15.0
+992,VSZQ-4422,Tønnevollskogen,8.0,273279,400.0,12.0
+993,VTSW-Q622,FRI FLYT Uteparkering ved Kolstadtunet 8-10,7.0,618083,,
+994,VTUC-7222,"Brønndalen Brl, Blokk 7 og 8",9.0,21867,230.0,23.0
+995,VUE9-X522,FRI FLYT Saupstadringen 2-10,6.0,512947,,
+996,VVLQ-6222,"P130-1581 Hesjaholten Borettslag, #2",12.0,19275,230.0,30.0
+997,VYAC-8322,Ellingsrud Boligsameie,9.0,156963,230.0,23.0
+998,W26K-P322,Lerkhaugen Sameiet,6.0,219280,230.0,15.0
+999,W3VK-5222,Rosenborg park B1,7.0,14572,400.0,10.0
+1000,W3W3-J322,Bjørnefaret brl,10.0,196848,230.0,25.0
+1001,W3WD-V222,Meklenborg brl Hovseterveien 48,7.0,112112,230.0,18.0
+1002,W62Z-D222,Gildheimsvegen nedre,10.0,49024,400.0,14.0
+1003,W6MY-2622,Møllesvingen Sammeie,7.0,528204,400.0,10.0
+1004,W6TB-A222,Kastellet brl,9.0,34020,230.0,23.0
+1005,W7L7-7422,Sameiet Tungland Hageby,7.0,283336,400.0,10.0
+1006,W825-6222,Ingemann Torps vei 15 - NORD,9.0,16768,400.0,13.0
+1007,W8VP-B522,Roan Vind,12.0,432876,400.0,17.0
+1008,WAHY-R522,Bestum sameie,3.0,491325,230.0,8.0
+1009,WANL-W422,Solsletta BK2,15.0,379217,400.0,22.0
+1010,WCLQ-E222,Neslia-Nesåsveien 3,9.0,52041,400.0,13.0
+1011,WF2F-W522,Scala Odden,5.0,509569,400.0,7.0
+1012,WGB6-M522,"Sundekrossen Brl, Mjughøyden 8",7.0,471589,400.0,10.0
+1013,WH6V-Z422,Sameiet Steinan Panorama,6.0,392593,230.0,15.0
+1014,WHLW-N522,Sameiet Solbakkane LB2,8.0,478793,400.0,12.0
+1015,WHVR-M522,Lyshovden Borettslag - Område 1,8.0,474093,,
+1016,WJR2-7222,Stokkbekken Sør (Sameiet Miljøbyen Granåsen B2),10.0,20574,400.0,14.0
+1017,WKW7-8222,Sjetne Park - Paralellen 25 utendørs/carport,6.0,25330,400.0,9.0
+1018,WLCK-X422,Nydal Park AS,12.0,383146,400.0,17.0
+1019,WNG8-T622,Kikut Borettslag,5.0,627514,400.0,7.0
+1020,WPSA-X422,Homla Hageby BT1,10.0,382050,400.0,14.0
+1021,WPVA-6222,Røyskattvegen,14.0,17518,,
+1022,WSPE-V222,Meklenborg brl Hovseterveien 50,7.0,112215,230.0,18.0
+1023,WSSP-8222,Sameiet Hjellemarka II B6,11.0,27363,400.0,16.0
+1024,WTM7-X622,Klokkerjordet,4.0,643791,230.0,10.0
+1025,WV3Z-D722,Engene 92 BRL,4.0,704391,230.0,10.0
+1026,X53G-9422,Rortunet Boligsameie,8.0,292612,230.0,20.0
+1027,X5XA-T222,Sameiet Dusavikveien 66,4.0,103540,230.0,10.0
+1028,X7GQ-C222,Jessheim Panorama,20.0,43832,400.0,29.0
+1029,X85Z-4222,Drivhusvegen 1,9.0,12172,400.0,13.0
+1030,X8NK-J422,Hetlevikhøyden Borettslag Område 1,18.0,329936,,
+1031,X9M5-L722,Varden Borettslag - Garasje 21-31,5.0,729548,,
+1032,XANX-D222,Follo park,7.0,48849,230.0,18.0
+1033,XBDQ-5222,Tonstad sør,9.0,15149,230.0,23.0
+1034,XBEE-V222,Meklenborg brl Hovseterveien 54,7.0,112177,230.0,18.0
+1035,XD7L-X422,Vestenga Garasjerekker,9.0,383253,230.0,23.0
+1036,XFDM-6222,Ringve park IV 2,9.0,18861,400.0,13.0
+1037,XG8B-6222,"Sollia, Vallhallveien 7",8.0,17561,230.0,20.0
+1038,XGJ6-6222,Tangen grendelag v Vipevegen,6.0,16961,230.0,15.0
+1039,XHDW-5222,Snekkeriet Ila,7.0,15917,230.0,18.0
+1040,XHRJ-Q522,Ullernåsen - Bygg 5,10.0,485469,230.0,25.0
+1041,XJXR-6222,P130-1581 Hesjaholten garasjelag,6.0,19446,230.0,15.0
+1042,XKN5-K222,Sameiet Sandslimarka 33,15.0,70098,400.0,22.0
+1043,XKTR-4722,"Vestre Hetlevikhøyden Brl.  område 7, 8 og 9",7.0,666598,230.0,18.0
+1044,XKXC-8522,Lid Borettslag Garasje,7.0,419190,230.0,18.0
+1045,XNHZ-6222,Strømsø Perspektiv Borettslag,8.0,20414,400.0,12.0
+1046,XTGN-P622,Bjørndalsskogen Borettslag Rekkegarasjer,6.0,612923,,
+1047,XWZW-F522,Sameiet Kloppedalshagen II,6.0,450175,230.0,15.0
+1048,XXNW-V622,Sønsthagen Nedre (Trysil),9.0,638547,400.0,13.0
+1049,XY6V-3722,Mistelpark - Garasjekjeller - Trinn 2,8.0,662931,400.0,12.0
+1050,XYAP-5522,Parkeringskjeller - Gotaasalleen,19.0,408227,400.0,27.0
+1051,XZRG-8222,Sameiet Charlottenlund Vest B1,5.0,26463,230.0,13.0
+1052,Y2A4-8522,Skjettenveien 40,13.0,418080,400.0,19.0
+1053,Y2EB-Z422,Borgenvangen BRL,3.0,390320,230.0,8.0
+1054,Y3CY-Z522,Solstrand Park,3.0,524072,400.0,4.0
+1055,Y3LZ-5722,Konnerud Senter Panorama,12.0,671688,400.0,17.0
+1056,Y567-L622,Sameiet Symfonien,7.0,598672,400.0,10.0
+1057,Y7HS-F322,Garasje ved Saupstadringen 79-81,12.0,187452,230.0,30.0
+1058,Y9EP-5222,"Ruta, Øvre Flatåsvei 12",14.0,15024,230.0,35.0
+1059,Y9YS-6222,Benterud,7.0,19576,230.0,18.0
+1060,YCMP-E222,Mæhlumsløkka Plasser: 47-78(Easee kurs 5-7),8.0,51917,230.0,20.0
+1061,YF9R-Q322,Furua BRL,14.0,224157,230.0,35.0
+1062,YGA9-M522,Gammelsaga BRL,8.0,471969,230.0,20.0
+1063,YGET-L822,Hommelvik Sjøside Sandfjæra,2.0,863409,400.0,3.0
+1064,YHYQ-6222,Sameiet Elvehavn Brygge F og Sameiet Blokka Mi,8.0,19321,400.0,12.0
+1065,YL23-4222,Jernkisvegen 4 Tårn,11.0,8322,400.0,16.0
+1066,YLRH-J422,Wessel Park,12.0,329694,400.0,17.0
+1067,YNRY-5222,"Åråsveien 15, Dbo Brl",7.0,16222,230.0,18.0
+1068,YNSX-Q322,Vallejordet,9.0,224994,400.0,13.0
+1069,YPP5-H222,Reiertangen brl,9.0,61910,230.0,23.0
+1070,YQHL-A722,Atlanteren Bb1,8.0,690494,400.0,12.0
+1071,YQS3-T322,Myrdal Borettslag - Øvre parkering (HF),8.0,233698,230.0,20.0
+1072,YRAS-W522,Hagebyen 3 Borettslag,5.0,511010,230.0,13.0
+1073,YT8G-8222,Skullerudhøgda II - GEV 71,4.0,26395,230.0,10.0
+1074,YUU4-D222,Myhrerenga Borettslag Uteanlegg,9.0,45419,400.0,13.0
+1075,YVSE-H222,Langerinden Borettslag - B 82-84,8.0,63075,230.0,20.0
+1076,YVX8-N222,Sameiet Gulleråsveien 30,6.0,82807,230.0,15.0
+1077,YWRB-2322,Jessheim Sør,12.0,132319,400.0,17.0
+1078,YXLQ-4222,Ulvedal Borettslag,12.0,11083,230.0,30.0
+1079,YXWZ-D322,Sentrumsgården,9.0,180211,400.0,13.0
+1080,YYZQ-6422,Hotellkvartalet Sameie,6.0,281471,400.0,9.0
+1081,YZ8Q-V222,Skansen Terrasse 21,16.0,113435,230.0,40.0
+1082,YZZL-7222,Torget Vest,7.0,22911,400.0,10.0
+1083,Z24W-B322,Vestlitoppen,7.0,171528,230.0,18.0
+1084,Z2KJ-E222,Saupstadringen 45,8.0,51268,230.0,20.0
+1085,Z2R2-A222,Hotvet Strand B4,8.0,32860,400.0,12.0
+1086,Z4HN-P622,Bjørndalsskogen Borettslag Carporter,7.0,612924,,
+1087,Z566-G222,"Svingen Borettslag, Drammen",7.0,57872,230.0,18.0
+1088,Z5HG-L522,Gullhauglia Borettslag,3.0,468796,230.0,8.0
+1089,Z7QL-K522,Kjærneshagen,10.0,465240,400.0,14.0
+1090,Z8GF-M522,Kvislaparken BT2,9.0,472760,400.0,13.0
+1091,Z95L-Z422,"Søre Skeisvann Borettslag, blokk 10",6.0,391436,,
+1092,ZAD5-A522,Fagerlia Hageby BRL v/ Aaengvegen 16,5.0,426413,400.0,7.0
+1093,ZAPN-2322,Sameiet Nobø B6,6.0,133717,230.0,15.0
+1094,ZBBF-E522,Øvre Grorud - Kalbakkveien 17,13.0,444069,230.0,33.0
+1095,ZCMD-5322,Brundalen BRL Brundalsgrenda,23.0,144845,230.0,58.0
+1096,ZCVA-A422,Einerlien Borettslag - Einerkollen 26-40,8.0,296045,,
+1097,ZD75-R522,Sameiet Kirsebærskogen - P-kjeller HOC 11,10.0,487829,400.0,14.0
+1098,ZDWQ-K222,Eierseksjonssameiet Luftå 25,7.0,72561,400.0,10.0
+1099,ZES4-K222,Fagstadlia 1 Område 2 Sør,6.0,69985,400.0,9.0
+1100,ZF2K-K522,Sandbekken 2 UF Kurs 5-13,20.0,465025,,
+1101,ZF7L-6322,Øygarden elektriske,7.0,149781,,
+1102,ZF9V-6222,Sameiet Paulineborg li,4.0,19869,400.0,6.0
+1103,ZFGV-X322,Starrmyra borettslag - uteparkering,8.0,253369,230.0,20.0
+1104,ZFSX-5222,Ski Amfi,6.0,16097,400.0,9.0
+1105,ZGK9-6222,"P130-1581 Hesjaholten Borettslag, #1",6.0,17349,,
+1106,ZGKE-U322,Åsmotunet NY,10.0,239173,400.0,14.0
+1107,ZLUD-9222,Vektagården Borettslag,4.0,30186,400.0,6.0
+1108,ZN5B-4722,Godlia BRL,7.0,664718,,
+1109,ZNR3-T322,Myrdal Borettslag - Nedre parkering (UF),18.0,233694,230.0,45.0
+1110,ZPBY-D622,Wergeland Borettslag - Øvre område (rekkegarasjer),8.0,573222,230.0,20.0
+1111,ZPZ9-8222,Ola Frosts Veg TN anlegg,5.0,25598,400.0,7.0
+1112,ZQK6-W522,Martin Skatvedts vei 8-10 - Rundingen,5.0,508486,230.0,13.0
+1113,ZQQW-N222,Vågedalen Velforening,6.0,85594,400.0,9.0
+1114,ZSQY-6622,Liaparken Borettslag B2,11.0,544603,,
+1115,ZTV6-X422,Søndre Veitvedt brl,7.0,381551,230.0,18.0
+1116,ZU4E-2622,Bragernes Atrium - Parkeringskjeller,10.0,525835,400.0,14.0
+1117,ZU6C-T522,Soljordet,6.0,496915,230.0,15.0
+1118,ZVG6-M522,"Sundekrossen Brl, Sundelia 22",6.0,471611,400.0,9.0
+1119,ZVSL-2322,Sundet Borettslag,7.0,133475,230.0,18.0
+1120,ZW73-V422,Øvre Grorud - Rekkegarasjen ved Kalbakkveien 11D,5.0,372887,230.0,13.0
+1121,ZXKY-B622,Ticon Fosskvartalet AS,6.0,565063,230.0,15.0
+1122,ZYY4-R522,Elveslettvegen 137 - 157 (oddetall),8.0,487803,400.0,12.0
+1123,ZZUF-H222,Solgården Sør,6.0,63211,230.0,15.0
