@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 import os
+import numpy as np
 import pandas as pd
 from azure.data.tables import TableClient
 from azure.core.credentials import AzureNamedKeyCredential
@@ -21,8 +22,11 @@ DB_URL = os.getenv("DB_URL")
 AZ_ACCOUNT = os.getenv("AZ_ACCOUNT")
 AZ_KEY = os.getenv("AZ_KEY")
 TABLE_ENDPOINT = "https://pulsehubstoraged998526f.table.core.windows.net"
-TABLE_NAME = "formattedobservations"
-OBS_IDS = [{"provider": "EASEE", "obs": "120"}, {"provider": "ZAPTEC", "obs": "513"}]
+OBS_IDS = [
+    {"provider": "EASEE", "obs": "120", "table": "formattedobservations"},
+    # {"provider": "ZAPTEC", "obs": "513", "table": "formattedobservations"},
+    # {"provider": "GARO", "obs": "-36", "table": "emablerlog"},
+]
 DAYS_BACK_IN_TIME = 60
 
 
@@ -36,6 +40,7 @@ class ChargingUnit:
     provider: str
     charger_id: str
     energy_area: str
+    meter_nr: str
 
 
 @dataclass
@@ -60,11 +65,10 @@ class ChargingUnitComplete:
     timestamp: str
     charger_id: str
     value_kWh: str
+    meter_nr: str
 
 
 def get_charging_unit_data() -> List[ChargingUnit]:
-    #            AND ("PulseStructureSite"."siteKey" = '925b00ad-71d9-44f3-a821-faf18303eb73' OR "PulseStructureSite"."siteKey" = 'RYW8-C322')
-
     query = f"""
         WITH raw AS (
             SELECT
@@ -81,15 +85,13 @@ def get_charging_unit_data() -> List[ChargingUnit]:
             LEFT JOIN "PulseStructureCircuit" ON "PulseStructureSite".id = "PulseStructureCircuit"."siteId"
             LEFT JOIN "PulseStructureChargingUnit" ON "PulseStructureCircuit".id = "PulseStructureChargingUnit"."circuitId"
         WHERE
-            ("PulseStructureChargingUnit".provider = 'EASEE' 
-            OR "PulseStructureChargingUnit".provider = 'ZAPTEC')
-            AND "PulseStructureChargingUnit"."SF_active" = TRUE
+            "PulseStructureChargingUnit"."SF_active" = TRUE
             AND "PulseStructureSite"."salesforceId" IS NOT NULL
         ),
         counter AS (
             SELECT "siteKey", COUNT("chargerId") as "count" FROM raw GROUP BY "siteKey"
         )
-        SELECT * FROM raw WHERE "siteKey" IN (SELECT "siteKey" FROM counter WHERE "count" <= 10) AND "sitePower(kW)" IS NOT NULL
+        SELECT * FROM raw WHERE "siteKey" IN (SELECT "siteKey" FROM counter WHERE "count" <= 10) AND "sitePower(kW)" IS NOT NULL and "siteKey" = 'LN74-D222'
     """
     data = []
 
@@ -101,6 +103,7 @@ def get_charging_unit_data() -> List[ChargingUnit]:
             for record in tqdm(cur):
                 sf = sf_data[sf_data["Id"] == record[7]]
                 energy_area = sf.values[0][2]
+                meter_nr = sf.values[0][3]
                 data.append(
                     ChargingUnit(
                         site_id=record[0],
@@ -111,27 +114,27 @@ def get_charging_unit_data() -> List[ChargingUnit]:
                         charger_id=record[5],
                         provider=record[6],
                         energy_area=energy_area,
+                        meter_nr=meter_nr,
                     )
                 )
     return data
-
 
 def fetch_charger_data(charging_unit: ChargingUnit, obs_id) -> List[ObsData]:
     if obs_id["provider"] != charging_unit.provider:
         return []
     credential = AzureNamedKeyCredential(AZ_ACCOUNT, AZ_KEY)
     table_client = TableClient(
-        credential=credential, endpoint=TABLE_ENDPOINT, table_name=TABLE_NAME
+        credential=credential, endpoint=TABLE_ENDPOINT, table_name=obs_id["table"]
     )
 
-    now = datetime.now()
-    start_time = now - timedelta(days=DAYS_BACK_IN_TIME)
+    now = datetime(2025, 1, 31, 23, 59, 59)
+    start_time = datetime(2024, 12, 1, 0, 0, 0)
     now_iso = now.strftime("%Y-%m-%dT%H:%M:%S.000Z")
     start_iso = start_time.strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
     filter_str = (
-        f"PartitionKey eq '{charging_unit.provider}_{obs_id["obs"]}' "
-        f"and RowKey gt '{charging_unit.charger_id}_{start_iso}' "
+        f"PartitionKey eq '{charging_unit.provider if charging_unit.provider != "GARO" else "EMABLER"}_{obs_id["obs"]}' "
+        f"and RowKey gt '{charging_unit.charger_id}_{start_iso}'"
         f"and RowKey lt '{charging_unit.charger_id}_{now_iso}'"
     )
 
@@ -140,17 +143,12 @@ def fetch_charger_data(charging_unit: ChargingUnit, obs_id) -> List[ObsData]:
         ObsData(
             charger_id=e["chargerId"],
             timestamp=e["pulseTimestamp"],
-            value=(
-                float(e["value"]) / 1000.0
-                if obs_id["provider"] == "ZAPTEC"
-                else float(e["value"])
-            ),
+            value=(float(e["value"])),
             observation_id=e["observationId"],
         )
         for e in entities
     ]
     return data
-
 
 def fetch_nordpool_data():
     data = {}
@@ -168,7 +166,6 @@ def fetch_nordpool_data():
             data[d["deliveryStart"]] = d["entryPerArea"]
     return data
 
-
 def merge_data(
     charging_units: List[ChargingUnit], obs_data_list: List[ObsData], norddata, holidays
 ) -> List[ChargingUnitComplete]:
@@ -185,7 +182,7 @@ def merge_data(
                     ChargingUnitComplete(
                         **cu.__dict__,
                         timestamp=obs.timestamp,
-                        value_kWh=obs.value,
+                        value_kWh=float(obs.value),
                         spot_price=price,
                         is_holiday=isHoliday,
                     )
@@ -194,7 +191,6 @@ def merge_data(
                 continue
 
     return complete_data
-
 
 def get_holidays():
     data = []
@@ -207,7 +203,6 @@ def get_holidays():
         data.extend(map(lambda x: x["date"], res))
     return data
 
-
 def get_nordpool_price(norddata: dict, timestamp: str, energy_area: str) -> float:
     """Get price for specific timestamp and energy area from norddata."""
     try:
@@ -218,97 +213,78 @@ def get_nordpool_price(norddata: dict, timestamp: str, energy_area: str) -> floa
         return None
     return None
 
-
-
-def fill_timestamp(df):
-    # First, create a reference DataFrame with static values for each charger_id
-    static_columns = [
-        "site_id",
-        "site_key",
-        "name",
-        "observation_id",
-        "site_power",
-        "circuit_id",
-        "provider",
-        "energy_area",
-    ]
-    static_values = (
-        df[["charger_id"] + static_columns]
-        .drop_duplicates("charger_id")
-        .set_index("charger_id")
-    )
-
-    # # Create complete date range
-    min_date = df["timestamp"].min()
-    max_date = df["timestamp"].max()
-    all_timestamps = pd.date_range(start=min_date, end=max_date, freq="h")
-
-    # Create all possible combinations
-    charger_ids = df["charger_id"].unique()
-    index = pd.MultiIndex.from_product(
-        [charger_ids, all_timestamps], names=["charger_id", "timestamp"]
-    )
-
-    # Create new DataFrame with all combinations
-    df_expanded = pd.DataFrame(index=index).reset_index()
-
-    # Merge static values
-    df_expanded = df_expanded.merge(
-        static_values, left_on="charger_id", right_index=True
-    )
-
-    # Merge with original values
-    df = df.set_index(["charger_id", "timestamp"])
-    df_expanded = df_expanded.set_index(["charger_id", "timestamp"])
-    df_expanded["value"] = df["value"]
-    df_expanded["value"] = df_expanded["value"].fillna(0)
-
-    # Reset index and continue with your existing code
-    df = df_expanded.reset_index()
-    return df
-
 def calculate_kwh(obs_results, charging_units_df):
     obs_results_df = pd.DataFrame([d.__dict__ for d in obs_results])
     obs_results_df["timestamp"] = pd.to_datetime(
         obs_results_df["timestamp"], format="ISO8601"
     )
-    obs_results_df["floor_timesamp"] = obs_results_df["timestamp"].dt.floor("h")
+    obs_results_df["timestamp"] = obs_results_df["timestamp"].dt.tz_convert(
+        "Europe/Oslo"
+    )
+    obs_results_df["floor_timestamp"] = obs_results_df["timestamp"].dt.floor("h")
+
+    obs_results_df = obs_results_df.sort_values(["charger_id", "timestamp"])
+
     obs_results_df["time_diff_seconds"] = (
-        None  # Start with an empty column for time differences
+        obs_results_df.groupby("charger_id")["timestamp"]
+        .diff()
+        .shift(-1)
+        .dt.total_seconds()
+        .abs()
+    )
+    obs_results_df["prev_time_diff_seconds"] = (
+        obs_results_df.groupby("charger_id")["timestamp"]
+        .diff()
+        .shift(1)
+        .dt.total_seconds()
+        .abs()
     )
 
-    # Iterate over each group and calculate the time difference within the same group
-    for _, group in obs_results_df.groupby(["charger_id", "floor_timesamp"]):
-        group["time_diff_seconds"] = (
-            group["timestamp"].shift(-1) - group["timestamp"]
-        ).dt.total_seconds()
-        group.loc[group.index[-1], "time_diff_seconds"] = (
-            0  # Set the last value to 0
-        )
+    obs_results_df["next_floor_timestamp"] = obs_results_df["floor_timestamp"].shift(-1)
+    obs_results_df["next_timestamp"] = obs_results_df["timestamp"].shift(-1)
 
-        obs_results_df.loc[group.index, "time_diff_seconds"] = group[
-            "time_diff_seconds"
-        ]
+    obs_results_df["prev_floor_timestamp"] = obs_results_df["floor_timestamp"].shift(1)
+    obs_results_df["prev_timestamp"] = obs_results_df["timestamp"].shift(1)
+    obs_results_df["prev_value"] = obs_results_df["value"].shift(1)
 
-    obs_results_df["value"] = pd.to_numeric(
-        obs_results_df["value"], errors="coerce"
-    )
-    obs_results_df["time_diff_seconds"] = pd.to_numeric(
-        obs_results_df["time_diff_seconds"], errors="coerce"
+    condition = (obs_results_df["time_diff_seconds"] < 3600) & (
+        obs_results_df["floor_timestamp"] != obs_results_df["next_floor_timestamp"]
     )
 
+    obs_results_df.loc[condition, "time_diff_seconds"] = (
+        obs_results_df["next_floor_timestamp"] - obs_results_df["timestamp"]
+    ).dt.total_seconds()
+
+    condition = (obs_results_df["prev_time_diff_seconds"] < 3600) & (
+        obs_results_df["floor_timestamp"] != obs_results_df["prev_floor_timestamp"]
+    )
+
+    new_rows = obs_results_df[condition].copy()
+    new_rows["time_diff_seconds"] = (
+        new_rows["timestamp"] - new_rows["floor_timestamp"]
+    ).dt.total_seconds()
+    new_rows["timestamp"] = new_rows["floor_timestamp"]
+    new_rows["value"] = new_rows["prev_value"]
+    obs_results_df = pd.concat([obs_results_df, new_rows])
+    obs_results_df = obs_results_df.sort_values(["charger_id", "timestamp"])
+
+
+    obs_results_df["value"] = pd.to_numeric(obs_results_df["value"], errors="coerce")
     obs_results_df["value"] = obs_results_df["value"] * (
         obs_results_df["time_diff_seconds"] / 3600
     )
 
-    obs_results_df["timestamp"] = obs_results_df["floor_timesamp"]
-    obs_results_df = obs_results_df.drop(
-        columns=["time_diff_seconds", "floor_timesamp"]
+    result_df = (
+        obs_results_df.groupby(["charger_id", "floor_timestamp"], as_index=False)[
+            "value"
+        ]
+        .sum()
+        .rename(columns={"floor_timestamp": "timestamp"})
     )
 
-    df = pd.merge(obs_results_df, charging_units_df, how="left", on="charger_id")
-    df["value"] = df["value"].astype(float)
-    return df
+    result_df = pd.merge(result_df, charging_units_df, how="left", on="charger_id")
+
+    return result_df
 
 
 def process_data():
@@ -324,7 +300,6 @@ def process_data():
             for cu in charging_units
             for obs_id in OBS_IDS
         ]
-        # Wrap the `as_completed` iterator in tqdm, passing the total number of futures
         for future in tqdm(
             concurrent.futures.as_completed(futures), total=len(futures)
         ):
@@ -335,10 +310,6 @@ def process_data():
 
     charging_units_df = pd.DataFrame([d.__dict__ for d in charging_units])
 
-    total_units_per_site = (
-        charging_units_df.groupby("site_id").size().reset_index(name="total_units")
-    )
-
     df = calculate_kwh(obs_results, charging_units_df)
     df = df.groupby(
         [col for col in df.columns if col != "value"],
@@ -347,69 +318,21 @@ def process_data():
         value=("value", "sum"),
     )
 
-    df = fill_timestamp(df)
-
     df["timestamp"] = df["timestamp"].dt.strftime("%Y-%m-%dT%H:%M:%SZ")
     df["spot_price"] = df.apply(
         lambda row: get_nordpool_price(norddata, row["timestamp"], row["energy_area"]),
         axis=1,
     )
     df["is_holiday"] = df["timestamp"].apply(lambda x: int(x.split("T")[0] in holidays))
+
+    total_units_per_site = (
+        charging_units_df.groupby("site_id").size().reset_index(name="total_units")
+    )
     df["total_units"] = df["site_id"].map(
         total_units_per_site.set_index("site_id")["total_units"]
     )
 
-    df.to_csv("forcast/charger.csv", index=False)
-    df_site = (
-        df.groupby(
-            [
-                "site_id",
-                "site_key",
-                "name",
-                "provider",
-                "energy_area",
-                "spot_price",
-                "site_power",
-                "is_holiday",
-                "timestamp",
-                "total_units",
-            ],
-            as_index=False,
-        )
-        .agg(
-            value=("value", "sum"),
-            charging_units=("value", lambda x: (x != 0).sum()),
-        )
-        .sort_values(by=["site_key", "timestamp"])
-    )
-
-    df_site.to_csv("forcast/site.csv", index=False)
-
-    df_circuit= (
-        df.groupby(
-            [
-                "site_id",
-                "site_key",
-                "name",
-                "provider",
-                "energy_area",
-                "spot_price",
-                "site_power",
-                "is_holiday",
-                "circuit_id",
-                "timestamp",
-                "total_units",
-            ],
-            as_index=False,
-        )
-        .agg(
-            value=("value", "sum"),
-            charging_units=("value", lambda x: (x != 0).sum()),
-        )
-        .sort_values(by=["site_key", "circuit_id", "timestamp"])
-    )
-    df_circuit.to_csv("forcast/circuit.csv", index=False)
-
+    df.to_csv("data/main/charger.csv", index=False)
 
 
 if __name__ == "__main__":

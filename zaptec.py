@@ -110,7 +110,7 @@ def get_charging_unit_data() -> List[ChargingUnit]:
             LEFT JOIN "PulseStructureChargingUnit" ON "PulseStructureCircuit".id = "PulseStructureChargingUnit"."circuitId"
         WHERE
             "PulseStructureChargingUnit".provider = '{PROVIDER}'
-            AND "PulseStructureSite"."siteKey" IN ('f9d9ba39-fc02-4ee5-8def-e3d92c8cc219', 'cd1dc99e-8e04-4028-923c-45dc18d844a0')
+            AND "PulseStructureSite"."siteKey" IN ('f5693423-ccbb-4ff8-a336-f05299b6af65')
     """
     data = []
     with psycopg.connect(DB_URL) as conn:

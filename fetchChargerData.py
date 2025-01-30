@@ -27,7 +27,7 @@ TABLE_ENDPOINT = "https://pulsehubstoraged998526f.table.core.windows.net"
 TABLE_NAME = "formattedobservations"
 PROVIDER = "EASEE"
 OBS_IDS = ["122"]
-DAYS_BACK_IN_TIME = 30
+DAYS_BACK_IN_TIME = 60
 
 
 @dataclass
@@ -104,7 +104,7 @@ def get_charging_unit_data() -> List[ChargingUnit]:
             LEFT JOIN "PulseStructureChargingUnit" ON "PulseStructureCircuit".id = "PulseStructureChargingUnit"."circuitId"
         WHERE
             "PulseStructureChargingUnit".provider = '{PROVIDER}'
-            -- AND "PulseStructureSite"."siteKey" in ('RYW8-C322', 'ZQK6-W522', '6M6M-7222', '28T4-7722', 'TRED-E222', 'EMRB-G222')
+            AND "PulseStructureSite"."siteKey" in ('LN74-D222')
 
 
     """
@@ -153,8 +153,8 @@ def fetch_charger_data(
         credential=credential, endpoint=TABLE_ENDPOINT, table_name=table_name
     )
 
-    now = datetime.now()
-    start_time = now - timedelta(days=days_back)
+    now = datetime(2025, 1, 31, 23, 59, 59)
+    start_time = datetime(2025, 1, 1, 0, 0, 0)
     now_iso = now.strftime("%Y-%m-%dT%H:%M:%S.000Z")
     start_iso = start_time.strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
@@ -222,13 +222,13 @@ def aggregate_data(df: pd.DataFrame) -> (pd.DataFrame, pd.DataFrame):
     # Circuit-level aggregation by hour
     report_circuit_level = (
         df.groupby(["site_key", "name", "circuit_id", "timestamp"])
-        .agg(sum_value_kW=("value_kW", "sum"), chargers=("value_kW", "count"))
+        .agg(sum_value=("value_kW", "sum"), chargers=("value_kW", "count"))
         .reset_index()
     )
 
     report_site_level = (
         df.groupby(["site_key", "name", "timestamp"])
-        .agg(sum_value_kW=("value_kW", "sum"), chargers=("value_kW", "count"))
+        .agg(sum_value=("value_kW", "sum"), chargers=("value_kW", "count"))
         .reset_index()
     )
 
@@ -280,11 +280,11 @@ def prepare_hourly_data(
     and merge with the existing report data to fill missing hours with zeros.
     """
     # Group by day/hour and take the mean (or sum) as needed
-    # For circuit level we keep sum_value_kW and chargers aggregated
+    # For circuit level we keep sum_value and chargers aggregated
     report_df["timestamp"] = report_df["timestamp"].dt.floor("h")
     hourly_data = report_df.groupby(
         ["site_key", "name", "circuit_id", "timestamp"], as_index=False
-    ).agg(sum_value_kW=("sum_value_kW", "mean"), chargers=("chargers", "mean"))
+    ).agg(sum_value=("sum_value", "mean"), chargers=("chargers", "mean"))
 
     # Add circuit power info back
     circuit_power_info = df_original[
@@ -296,7 +296,7 @@ def prepare_hourly_data(
 
     # Calculate ratio
     hourly_data["used_power_ratio"] = (
-        (hourly_data["sum_value_kW"] / hourly_data["circuit_power_kw"] * 100)
+        (hourly_data["sum_value"] / hourly_data["circuit_power_kw"] * 100)
         .fillna(0)
         .round(2)
     )
@@ -324,7 +324,7 @@ def prepare_hourly_data(
             how="left",
         ).fillna(
             {
-                "sum_value_kW": 0,
+                "sum_value": 0,
                 "chargers": 0,
                 "circuit_power_kw": 0,
                 "used_power_ratio": 0,
@@ -358,7 +358,7 @@ def plot_data(
     circuit_highest_peaks = calculate_highest_peaks_avg(
         report_circuit_level,
         group_cols=["site_key", "circuit_id"],
-        value_col="sum_value_kW",
+        value_col="sum_value",
     )
     report_expanded = prepare_hourly_data(report_circuit_level, df)
 
@@ -400,7 +400,7 @@ def plot_data(
             fig.add_trace(
                 go.Bar(
                     x=circuit_data["timestamp"],
-                    y=circuit_data["sum_value_kW"],
+                    y=circuit_data["sum_value"],
                     name=f"Circuit {circuit}",
                     legendgroup=f"site_{site}",
                     legendgrouptitle_text=f"Site {site_name}",
@@ -426,14 +426,21 @@ def plot_data(
 
 
 def save_data(df, charging_units, provider):
-    old_df = df.copy()
 
     # Aggregate data at circuit and site levels
+    df = df.sort_values(["charger_id", "timestamp"])
+    df.to_csv(
+        f"data/{provider}/chargers.csv",
+        index=False,
+        columns=["charger_id", "timestamp", "value_kW"],
+    )
     report_circuit_level, report_site_level = aggregate_data(df)
+    print("Data Aggregated")
 
     site_highest_peaks = calculate_highest_peaks_avg(
-        report_site_level, group_cols=["site_key"], value_col="sum_value_kW"
+        report_site_level, group_cols=["site_key", "name"], value_col="sum_value"
     )
+    print("Highest peaks calculated")
 
     site_highest_peaks.to_csv(
         f"data/{provider}/site_highest_peaks_avg.csv", index=False
@@ -441,49 +448,16 @@ def save_data(df, charging_units, provider):
 
     # plot_data(report_circuit_level, df)
 
-    old_df["timestamp"] = pd.to_datetime(old_df["timestamp"], format="ISO8601")
-    old_df.set_index("timestamp", inplace=True)
-
-    circuit_avg = report_circuit_level.groupby(
-        ["site_key", "name", "circuit_id"], as_index=False
-    ).agg(avg_value_kW=("sum_value_kW", "mean"))
-
-    circuit_avg["avg_value_kW"] = np.ceil(circuit_avg["avg_value_kW"]) + 1
-
-    circuit_avg["site_id"] = circuit_avg["site_key"].apply(
-        lambda x: [cu.site_id for cu in charging_units if cu.site_key == x][0]
-    )
-    circuit_avg["voltage"] = circuit_avg["site_key"].apply(
-        lambda x: [cu.net_v for cu in charging_units if cu.site_key == x][0]
-    )
-    circuit_avg["amps"] = np.round(
-        circuit_avg["avg_value_kW"] * 1000 / (circuit_avg["voltage"] * math.sqrt(3))
-    )
-    circuit_avg.to_csv(f"data/{provider}/circuit_avg.csv")
-
     site_avg = report_site_level.groupby(["site_key", "name"], as_index=False).agg(
-        avg_value_kW=("sum_value_kW", "mean")
+        avg_value_kW=("sum_value", "mean")
     )
 
-    site_avg["avg_value_kW"] = np.ceil(site_avg["avg_value_kW"]) + 1
-
-    site_avg["site_id"] = site_avg["site_key"].apply(
-        lambda x: [cu.site_id for cu in charging_units if cu.site_key == x][0]
-    )
-    site_avg["voltage"] = site_avg["site_key"].apply(
-        lambda x: [cu.net_v for cu in charging_units if cu.site_key == x][0]
-    )
-    site_avg["amps"] = np.round(
-        site_avg["avg_value_kW"] * 1000 / (site_avg["voltage"] * math.sqrt(3))
-    )
     site_avg.to_csv(f"data/{provider}/site_avg.csv")
 
 
 def process_data():
-    # Fetch static charging unit info
     charging_units = get_charging_unit_data()
 
-    # Fetch observation data (parallel)
     obs_results = []
     with concurrent.futures.ThreadPoolExecutor() as executor:
         futures = [
@@ -493,7 +467,9 @@ def process_data():
             for cu in charging_units
             for obs_id in OBS_IDS
         ]
-        for future in tqdm(concurrent.futures.as_completed(futures)):
+        for future in tqdm(
+            concurrent.futures.as_completed(futures), total=len(futures)
+        ):
             obs_results.extend(future.result())
 
     if not obs_results:
@@ -508,7 +484,6 @@ def process_data():
     print("Data merged")
     df = pd.DataFrame([d.__dict__ for d in complete_data])
     save_data(df, charging_units, PROVIDER)
-    
 
 
 if __name__ == "__main__":
