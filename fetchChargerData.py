@@ -1,17 +1,18 @@
 import calendar
-from datetime import datetime, timedelta
+import concurrent.futures
+import csv
 import math
 import os
+from dataclasses import dataclass
+from datetime import datetime, timedelta
+from typing import List, Optional
+
 import numpy as np
 import pandas as pd
-from azure.data.tables import TableClient
-from azure.core.credentials import AzureNamedKeyCredential
-import csv
-import concurrent.futures
-import psycopg
-from dataclasses import dataclass
-from typing import Optional, List
 import plotly.graph_objects as go
+import psycopg
+from azure.core.credentials import AzureNamedKeyCredential
+from azure.data.tables import TableClient
 from dotenv import load_dotenv
 from tqdm import tqdm
 
@@ -104,7 +105,8 @@ def get_charging_unit_data() -> List[ChargingUnit]:
             LEFT JOIN "PulseStructureChargingUnit" ON "PulseStructureCircuit".id = "PulseStructureChargingUnit"."circuitId"
         WHERE
             "PulseStructureChargingUnit".provider = '{PROVIDER}'
-            AND "PulseStructureSite"."siteKey" in ('LN74-D222')
+            AND "PulseStructureSite"."siteKey" in ('S988-X622')
+
 
 
     """
@@ -425,6 +427,209 @@ def plot_data(
     fig.write_html("index.html")
 
 
+def plot_site_data(
+    report_circuit_level: pd.DataFrame,
+    df: pd.DataFrame,
+):
+    """
+    Plot the expanded hourly data.
+    Each circuit trace will show the circuit-level avg_three_highest_peaks in the legend.
+    """
+    report_expanded = prepare_hourly_data(report_circuit_level, df)
+
+    # Extract unique site names for the plotting function
+    site_names = df[["site_key", "name"]].drop_duplicates()
+    fig = go.Figure()
+
+    # Iterate over sites
+    # Iterate over sites
+
+    capacity_steps = {
+        "Kapasitetstrinn 1": 0,
+        "Kapasitetstrinn 2": 2,
+        "Kapasitetstrinn 3": 5,
+        "Kapasitetstrinn 4": 10,
+        "Kapasitetstrinn 5": 15,
+        "Kapasitetstrinn 6": 20,
+        "Kapasitetstrinn 7": 25,
+        "Kapasitetstrinn 8": 50,
+        "Kapasitetstrinn 9": 75,
+        "Kapasitetstrinn 10": 100,
+    }
+
+    for site in report_expanded["site_key"].unique():
+        site_data = report_expanded[report_expanded["site_key"] == site]
+        site_name = site_names[site_names["site_key"] == site]["name"].values[0]
+
+        # Aggregate data at the site level
+        site_aggregated = (
+            site_data.groupby("timestamp")["sum_value"].sum().reset_index()
+        )
+
+        # Get the avg_three_highest_peaks for the entire site
+
+        # Add site-level trace
+        fig.add_trace(
+            go.Bar(
+                x=site_aggregated["timestamp"],
+                y=site_aggregated["sum_value"],
+                name=f"Site {site}",
+                legendgroup=f"site_{site}",
+                legendgrouptitle_text=f"Site {site_name}",
+                showlegend=True,
+                text=site_aggregated["sum_value"],
+                textposition="outside",
+                textfont=dict(size=14),
+            )
+        )
+    for name, y_value in capacity_steps.items():
+        fig.add_shape(
+            type="line",
+            x0=min(report_expanded["timestamp"]),  # Start of the x-axis
+            x1=max(report_expanded["timestamp"]),  # End of the x-axis
+            y0=y_value,
+            y1=y_value,  # Horizontal line at y = kWh/h
+            line=dict(color="red", width=2, dash="dash"),  # Dashed red line
+        )
+
+        # Add annotation for each step
+        fig.add_annotation(
+            x=max(report_expanded["timestamp"]),  # Position label at the right side
+            y=y_value,
+            text=name,
+            showarrow=False,
+            font=dict(size=12, color="black"),
+            xanchor="left",
+            yanchor="bottom",
+        )
+
+    fig.update_xaxes(dtick=3600000, tickformat="%H\n%d\n%b\n%Y", tickmode="auto")
+    fig.show()
+    fig.write_html("index.html")
+
+
+def plot_site_df_data(
+    report_circuit_level: pd.DataFrame,
+    df: pd.DataFrame,
+    site_name: str,
+    start_date: datetime = None,
+):
+    """
+    Plot the expanded hourly data.
+    Each circuit trace will show the circuit-level avg_three_highest_peaks in the legend.
+    """
+    report_expanded = prepare_hourly_data(report_circuit_level, df)
+
+    # Extract unique site names for the plotting function
+    site_names = df[["site_key", "name"]].drop_duplicates()
+    fig = go.Figure()
+
+    # Iterate over sites
+    # Iterate over sites
+
+    capacity_steps = {
+        "Kapasitetstrinn 1": 0,
+        "Kapasitetstrinn 2": 2,
+        "Kapasitetstrinn 3": 5,
+        "Kapasitetstrinn 4": 10,
+        "Kapasitetstrinn 5": 15,
+        "Kapasitetstrinn 6": 20,
+        "Kapasitetstrinn 7": 25,
+        "Kapasitetstrinn 8": 50,
+        "Kapasitetstrinn 9": 75,
+        "Kapasitetstrinn 10": 100,
+    }
+    highest_peak = calculate_highest_peaks_avg(
+        report_circuit_level,
+        group_cols=["site_key"],
+        value_col="sum_value",
+    )["avg_three_highest_peaks"].values[0]
+
+    # Aggregate data at the site level
+    site_aggregated = (
+        report_expanded.groupby("timestamp")["sum_value"].sum().reset_index()
+    )
+
+    capacity_steps_array = list(capacity_steps.values())
+
+    if start_date is not None:
+        fig.add_shape(
+            type="line",
+            x0=start_date,
+            x1=start_date,
+            y0=0,
+            y1=max(site_aggregated["sum_value"]) + 10,
+            line=dict(
+                color="green",
+                width=2,
+            ),
+        )
+
+    # Get the avg_three_highest_peaks for the entire site
+
+    # Add site-level trace
+
+    fig.add_trace(
+        go.Bar(
+            x=site_aggregated["timestamp"],
+            y=site_aggregated["sum_value"],
+            name=f"Site {site_name}",
+            legendgroup=f"site_{site_name}",
+            legendgrouptitle_text=f"Site {site_name}",
+            showlegend=True,
+            text=site_aggregated["sum_value"],
+            textposition="outside",
+            textfont=dict(size=14),
+        )
+    )
+    for i, (name, y_value) in enumerate(capacity_steps.items()):
+
+        if highest_peak < y_value and capacity_steps_array[i - 1] <= highest_peak:
+            fig.add_shape(
+                type="line",
+                x0=min(report_expanded["timestamp"]),  # Start of the x-axis
+                x1=max(report_expanded["timestamp"]),  # End of the x-axis
+                y0=y_value,
+                y1=y_value,  # Horizontal line at y = kWh/h
+                line=dict(color="red", width=2, dash="dash"),  # Dashed red line
+            )
+
+            # Add annotation for each step
+            fig.add_annotation(
+                x=max(report_expanded["timestamp"]),  # Position label at the right side
+                y=y_value,
+                text=name,
+                showarrow=False,
+                font=dict(size=12, color="black"),
+                xanchor="left",
+                yanchor="bottom",
+            )
+        if y_value <= highest_peak:
+            fig.add_shape(
+                type="line",
+                x0=min(report_expanded["timestamp"]),  # Start of the x-axis
+                x1=max(report_expanded["timestamp"]),  # End of the x-axis
+                y0=y_value,
+                y1=y_value,  # Horizontal line at y = kWh/h
+                line=dict(color="red", width=2, dash="dash"),  # Dashed red line
+            )
+
+            # Add annotation for each step
+            fig.add_annotation(
+                x=max(report_expanded["timestamp"]),  # Position label at the right side
+                y=y_value,
+                text=name,
+                showarrow=False,
+                font=dict(size=12, color="black"),
+                xanchor="left",
+                yanchor="bottom",
+            )
+
+    fig.update_xaxes(dtick=3600000, tickformat="%H\n%d\n%b\n%Y", tickmode="auto")
+    fig.show()
+    fig.write_html("index.html")
+
+
 def save_data(df, charging_units, provider):
 
     # Aggregate data at circuit and site levels
@@ -447,6 +652,11 @@ def save_data(df, charging_units, provider):
     )
 
     # plot_data(report_circuit_level, df)
+    # plot_site_data(report_circuit_level, df)
+    name = report_circuit_level["name"].unique()[0]
+    plot_site_df_data(
+        report_circuit_level, df, name, pd.Timestamp("2025-01-14 00:00:00")
+    )
 
     site_avg = report_site_level.groupby(["site_key", "name"], as_index=False).agg(
         avg_value_kW=("sum_value", "mean")

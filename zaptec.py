@@ -1,17 +1,18 @@
 import calendar
-from datetime import datetime, timedelta
+import concurrent.futures
+import csv
 import math
 import os
+from dataclasses import dataclass
+from datetime import datetime, timedelta
+from typing import List, Optional
+
 import numpy as np
 import pandas as pd
-from azure.data.tables import TableClient
-from azure.core.credentials import AzureNamedKeyCredential
-import csv
-import concurrent.futures
-import psycopg
-from dataclasses import dataclass
-from typing import Optional, List
 import plotly.graph_objects as go
+import psycopg
+from azure.core.credentials import AzureNamedKeyCredential
+from azure.data.tables import TableClient
 from dotenv import load_dotenv
 
 from fetchChargerData import (
@@ -110,7 +111,7 @@ def get_charging_unit_data() -> List[ChargingUnit]:
             LEFT JOIN "PulseStructureChargingUnit" ON "PulseStructureCircuit".id = "PulseStructureChargingUnit"."circuitId"
         WHERE
             "PulseStructureChargingUnit".provider = '{PROVIDER}'
-            AND "PulseStructureSite"."siteKey" IN ('f5693423-ccbb-4ff8-a336-f05299b6af65')
+            AND "PulseStructureSite"."siteKey" IN ('ca4acfcb-381a-4f23-b677-9314804be5bf')
     """
     data = []
     with psycopg.connect(DB_URL) as conn:
