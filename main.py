@@ -91,7 +91,7 @@ def get_charging_unit_data() -> List[ChargingUnit]:
         counter AS (
             SELECT "siteKey", COUNT("chargerId") as "count" FROM raw GROUP BY "siteKey"
         )
-        SELECT * FROM raw WHERE "siteKey" IN (SELECT "siteKey" FROM counter WHERE "count" <= 10) AND "sitePower(kW)" IS NOT NULL and "siteKey" = 'LN74-D222'
+        SELECT * FROM raw WHERE "siteKey" IN (SELECT "siteKey" FROM counter WHERE "count" <= 10) AND "sitePower(kW)" IS NOT NULL
     """
     data = []
 
@@ -118,6 +118,7 @@ def get_charging_unit_data() -> List[ChargingUnit]:
                     )
                 )
     return data
+
 
 def fetch_charger_data(charging_unit: ChargingUnit, obs_id) -> List[ObsData]:
     if obs_id["provider"] != charging_unit.provider:
@@ -150,8 +151,10 @@ def fetch_charger_data(charging_unit: ChargingUnit, obs_id) -> List[ObsData]:
     ]
     return data
 
+
 def fetch_nordpool_data():
     data = {}
+    return data
     print("Fetching data from Nordpool")
     for day_back in range(DAYS_BACK_IN_TIME + 1):
 
@@ -165,6 +168,7 @@ def fetch_nordpool_data():
         for d in res["multiAreaEntries"]:
             data[d["deliveryStart"]] = d["entryPerArea"]
     return data
+
 
 def merge_data(
     charging_units: List[ChargingUnit], obs_data_list: List[ObsData], norddata, holidays
@@ -192,8 +196,10 @@ def merge_data(
 
     return complete_data
 
+
 def get_holidays():
     data = []
+    return data
     years = [2025, 2024]
     for year in years:
         response = requests.request(
@@ -202,6 +208,7 @@ def get_holidays():
         res = response.json()
         data.extend(map(lambda x: x["date"], res))
     return data
+
 
 def get_nordpool_price(norddata: dict, timestamp: str, energy_area: str) -> float:
     """Get price for specific timestamp and energy area from norddata."""
@@ -213,8 +220,10 @@ def get_nordpool_price(norddata: dict, timestamp: str, energy_area: str) -> floa
         return None
     return None
 
+
 def calculate_kwh(obs_results, charging_units_df):
     obs_results_df = pd.DataFrame([d.__dict__ for d in obs_results])
+
     obs_results_df["timestamp"] = pd.to_datetime(
         obs_results_df["timestamp"], format="ISO8601"
     )
@@ -265,9 +274,12 @@ def calculate_kwh(obs_results, charging_units_df):
     ).dt.total_seconds()
     new_rows["timestamp"] = new_rows["floor_timestamp"]
     new_rows["value"] = new_rows["prev_value"]
+
     obs_results_df = pd.concat([obs_results_df, new_rows])
     obs_results_df = obs_results_df.sort_values(["charger_id", "timestamp"])
 
+    condition = obs_results_df["time_diff_seconds"] > 3600
+    obs_results_df.loc[condition, "time_diff_seconds"] = 0
 
     obs_results_df["value"] = pd.to_numeric(obs_results_df["value"], errors="coerce")
     obs_results_df["value"] = obs_results_df["value"] * (
